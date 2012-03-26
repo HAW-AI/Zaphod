@@ -5,6 +5,8 @@ gem 'sorcery'
 gem 'cancan'
 gem 'inherited_resources'
 
+gem 'sqlite3'
+
 group :development, :test do
   # Testing
   gem 'rspec-rails'
