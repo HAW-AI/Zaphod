@@ -8,7 +8,6 @@ Zaphod ist eine Karteikarten-Webapp. Grundsätzlicher Gedanke ist eine Kernanwen
 * **[InheritedResources]** für faule Entwickler (Default RESTful behavior)
 * **[RSpec]** für Testung
 * **[Rabl]** für JSON Templates
-* **[Compass]** für CSS
 
 
 
@@ -17,4 +16,3 @@ Zaphod ist eine Karteikarten-Webapp. Grundsätzlicher Gedanke ist eine Kernanwen
 [InheritedResources]: https://github.com/josevalim/inherited_resources
 [RSpec]: http://rspec.info/
 [Rabl]: https://github.com/nesquena/rabl
-[Compass]: http://compass-style.org/
