@@ -2,5 +2,9 @@
 
 FactoryGirl.define do
   factory :user do
+    username "Robert'); DROP TABLE Students;--"
+    email "zaphod@example.com"
+    crypted_password "bobby"
+    salt "tables"
   end
 end
