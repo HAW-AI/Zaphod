@@ -7,7 +7,7 @@ describe User do
   it { should validate_presence_of(:email) }
   
   context "given a valid user" do
-    subject { Factory.create(:user) }
+    subject { FactoryGirl.create(:user) }
     
     it { should be_valid }
   end
