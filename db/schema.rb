@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120402094441) do
+ActiveRecord::Schema.define(:version => 20120402094636) do
 
   create_table "users", :force => true do |t|
     t.string   "username",                                     :null => false
@@ -32,6 +32,9 @@ ActiveRecord::Schema.define(:version => 20120402094441) do
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
     t.string   "authentication_token"
+    t.integer  "failed_attempts",              :default => 0
+    t.string   "unlock_token"
+    t.datetime "locked_at"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
