@@ -7,5 +7,6 @@ FactoryGirl.define do
     password "bobby tables"
     password_confirmation "bobby tables"
     salt "tables"
+    authentication_token "valid_auth_token"
   end
 end
