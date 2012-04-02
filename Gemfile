@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.2'
-gem 'sorcery'
+gem 'devise'
 gem 'cancan'
 gem 'inherited_resources'
 
