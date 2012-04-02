@@ -1,9 +1,9 @@
 Zaphod::Application.routes.draw do
   # See how all your routes lay out with "rake routes"
 
-  resource :current_users
+  resource :current_users, path: "current_user", as: "current_user"
   resources :users
-  
+
   devise_for :users
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
