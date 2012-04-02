@@ -1,5 +1,5 @@
 class CurrentUsersController < ResourceController
-  def create
+  def show
     respond_with :code => :success
   end
 end
