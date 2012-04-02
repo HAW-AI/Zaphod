@@ -34,4 +34,7 @@ Zaphod::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+  
+  # default host prefix for *_url helper within mails
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 end
