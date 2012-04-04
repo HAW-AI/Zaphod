@@ -3,7 +3,7 @@ Zaphod ist eine Karteikarten-Webapp. Grundsätzlicher Gedanke ist eine Kernanwen
 
 ## Abhängigkeiten
 ### Backend
-* **[Sorcery]** für Benutzer Authentifizierung
+* **[Devise]** für Benutzer Authentifizierung
 * **[CanCan]** für Benutzer Autorisierung
 * **[InheritedResources]** für faule Entwickler (Default RESTful behavior)
 * **[RSpec]** für Testung
@@ -11,7 +11,7 @@ Zaphod ist eine Karteikarten-Webapp. Grundsätzlicher Gedanke ist eine Kernanwen
 
 
 
-[Sorcery]: https://github.com/NoamB/sorcery
+[Devise]: https://github.com/plataformatec/devise
 [CanCan]: https://github.com/ryanb/cancan
 [InheritedResources]: https://github.com/josevalim/inherited_resources
 [RSpec]: http://rspec.info/
