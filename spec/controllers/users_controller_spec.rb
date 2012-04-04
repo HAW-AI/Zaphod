@@ -12,5 +12,12 @@ describe UsersController do
 
       it { response.should be_success }
     end
+    
+    context "given existing user data" do
+      let(:user) { FactoryGirl.create(:user).attributes.extract!(:username, :email, :password) }
+      before :each do do_post :user => user end
+
+      it { response.should_not be_success }
+    end
   end
 end
