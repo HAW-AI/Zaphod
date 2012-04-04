@@ -3,7 +3,7 @@
 FactoryGirl.define do
   factory :user do
     username "Robert'); DROP TABLE Students;--"
-    email "zaphod@example.com"
+    sequence(:email) { |n| "zaphod.#{n}@example.com" }
     password "bobby tables"
     password_confirmation "bobby tables"
     salt "tables"
