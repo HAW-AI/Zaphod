@@ -7,6 +7,7 @@ describe User do
   it { should validate_presence_of(:email) }
 
   context "uniqueness" do
+    # validate_uniqueness_of requires atleast one database entry
     before { FactoryGirl.create(:user) }
     it { should validate_uniqueness_of(:email) }
     it { should validate_uniqueness_of(:username) }
