@@ -6,14 +6,14 @@ describe UsersController do
       post :create, data.merge(format: :json)
     end
     
-    context "given valid data" do
+    context "with valid data" do
       let(:user) { FactoryGirl.attributes_for(:user).extract!(:username, :email, :password) }
-      before :each do do_post :user => user end
+      before :each do do_post user: user end
 
       it { response.should be_success }
     end
     
-    context "given existing user data" do
+    context "with existing user data" do
       let(:user) { FactoryGirl.create(:user).attributes.extract!(:username, :email, :password) }
       before :each do do_post :user => user end
 
