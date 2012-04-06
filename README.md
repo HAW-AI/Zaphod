@@ -4,7 +4,7 @@ Zaphod ist eine Karteikarten-Webapp. Grundsätzlicher Gedanke ist eine Kernanwen
 ## Abhängigkeiten
 ### Backend
 * **[Devise]** für Benutzerauthentifizierung
-* **[CanCan]** für Benutzerauthorisierung
+* **[CanCan]** für Benutzerautorisierung
 * **[InheritedResources]** für faule Entwickler (default RESTful-Verhalten)
 * **[RSpec]** für Testung
 * **[Rabl]** für JSON-Templates
