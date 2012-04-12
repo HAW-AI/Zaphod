@@ -8,4 +8,6 @@ class User < ActiveRecord::Base
   attr_accessible :username, :email, :password, :password_confirmation, :remember_me
 
   validates :username, :email, presence: true, uniqueness: true
+
+  has_many :decks
 end

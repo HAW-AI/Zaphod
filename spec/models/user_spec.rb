@@ -5,6 +5,7 @@ describe User do
   it { should_not allow_mass_assignment_of :updated_at }
   it { should validate_presence_of(:username) }
   it { should validate_presence_of(:email) }
+  it { should have_many(:decks) }
 
   context "given there exist already some other" do
     # validate_uniqueness_of requires at least one database entry
