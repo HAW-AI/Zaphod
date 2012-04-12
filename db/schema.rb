@@ -11,10 +11,10 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120412121501) do
+ActiveRecord::Schema.define(:version => 20120412124610) do
 
   create_table "cards", :force => true do |t|
-    t.integer  "creator_id"
+    t.integer  "user_id"
     t.text     "front"
     t.text     "back"
     t.integer  "deck_id"
