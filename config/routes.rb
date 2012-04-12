@@ -1,5 +1,8 @@
 Zaphod::Application.routes.draw do
-  resources :decks
+
+  resources :decks, shallow: true do
+    resources :cards
+  end
 
   # See how all your routes lay out with "rake routes"
 
