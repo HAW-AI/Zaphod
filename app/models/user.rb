@@ -10,4 +10,5 @@ class User < ActiveRecord::Base
   validates :username, :email, presence: true, uniqueness: true
 
   has_many :decks
+  has_many :cards
 end
