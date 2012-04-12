@@ -2,7 +2,7 @@
 Zaphod ist eine Karteikarten-Webapp. Grundsätzlicher Gedanke ist eine Kernanwendung mit einer RESTful-API zu entwickeln. Grafische Oberflächen sollen erst im zweiten Schritt folgen.
 
 ## Styleguide - CodeConventions
-Es wird erwartet sich an Rails-Konventionen zu halten. Eine gute Zusammenfassung dazu finden man unteranderem im [Github-Styleguide].
+Es wird erwartet sich an Rails-Konventionen zu halten. Eine gute Zusammenfassung dazu findet man unteranderem im [Github-Styleguide].
 
 ## Abhängigkeiten
 ### Backend
