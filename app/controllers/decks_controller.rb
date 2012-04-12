@@ -1,0 +1,2 @@
+class DecksController < ResourceController
+end

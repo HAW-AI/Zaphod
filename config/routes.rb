@@ -1,4 +1,6 @@
 Zaphod::Application.routes.draw do
+  resources :decks
+
   # See how all your routes lay out with "rake routes"
 
   resource :current_users, path: "current_user", as: "current_user"
