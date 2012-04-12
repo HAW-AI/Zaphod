@@ -6,6 +6,7 @@ Es wird erwartet sich an Rails-Konventionen zu halten. Eine gute Zusammenfassung
 
 ## Abhängigkeiten
 ### Backend
+* **[Ruby on Rails]** als Basisframework
 * **[Devise]** für Benutzerauthentifizierung
 * **[CanCan]** für Benutzerautorisierung
 * **[InheritedResources]** für faule Entwickler (default RESTful-Verhalten)
@@ -17,6 +18,7 @@ Es wird erwartet sich an Rails-Konventionen zu halten. Eine gute Zusammenfassung
 
 
 
+[Ruby on Rails]: http://rubyonrails.org/
 [Devise]: https://github.com/plataformatec/devise
 [CanCan]: https://github.com/ryanb/cancan
 [InheritedResources]: https://github.com/josevalim/inherited_resources
