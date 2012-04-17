@@ -15,6 +15,7 @@ Es wird erwartet sich an Rails-Konventionen zu halten. Eine gute Zusammenfassung
 
 ### Frontend
 * **[Backbone]** als Basisframework ([Buch])
+* **[Underscore]** als Ergänzung zur JS-Standardbibliothek
 
 
 
@@ -27,3 +28,4 @@ Es wird erwartet sich an Rails-Konventionen zu halten. Eine gute Zusammenfassung
 [Github-Styleguide]: https://github.com/styleguide "GitHub coding styleguide"
 [Backbone]: http://documentcloud.github.com/backbone/
 [Buch]: http://addyosmani.github.com/backbone-fundamentals/
+[Underscore]: http://documentcloud.github.com/underscore/
