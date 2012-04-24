@@ -1,13 +1,14 @@
 Zaphod::Application.routes.draw do
 
-  resources :decks, shallow: true do
-    resources :cards
+  resources :users, shallow: true do
+    resources :decks do
+      resources :cards
+    end
   end
 
   # See how all your routes lay out with "rake routes"
 
   resource :current_users, path: "current_user", as: "current_user"
-  resources :users
 
   devise_for :users
 
