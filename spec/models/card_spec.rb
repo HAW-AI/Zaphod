@@ -7,6 +7,7 @@ describe Card do
   it { should belong_to(:deck) }
   it { should allow_mass_assignment_of :front }
   it { should allow_mass_assignment_of :back }
+  it { should validate_presence_of :front }
 
   context "fresh out of the factory" do
     subject { FactoryGirl.create(:card) }

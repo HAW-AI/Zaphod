@@ -3,4 +3,6 @@ class Card < ActiveRecord::Base
   belongs_to :user
 
   attr_accessible :front, :back
+
+  validates :front, presence: true
 end
