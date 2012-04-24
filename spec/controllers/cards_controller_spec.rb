@@ -43,8 +43,17 @@ describe CardsController do
   describe :update do
     let(:card) { FactoryGirl.create(:card, deck: deck) }
 
-    before { json_update params.merge(format: :json, id: card.id, deck_id: card.deck.id) }
+    context "with valid data" do
+      before { json_update params.merge(id: card.id, deck_id: card.deck.id) }
 
-    specify { response.should be_success }
+      specify { response.should be_success }
+    end
+
+    it { expect { json_update params.except(:deck_id) }.to raise_exception }
+    context "with invalid data" do
+      before { json_update params.merge(id: card.id, card: card_attr.merge(:front => nil)) }
+      it { response.should_not be_success }
+      it "should respond with appropriate status"
+    end
   end
 end
