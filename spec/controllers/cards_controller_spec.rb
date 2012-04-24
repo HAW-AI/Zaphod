@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe CardsController do
   let(:deck) { FactoryGirl.create(:deck) }
-  let(:card_attr) { card.attributes.slice(*Card.accessible_attributes.to_a) }
+  let(:card_attr) { card.attributes.slice(*Card.accessible_attributes) }
   let(:params) do
     {
       card: card_attr,
