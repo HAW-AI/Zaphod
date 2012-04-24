@@ -3,4 +3,6 @@ class Deck < ActiveRecord::Base
   has_many :cards
 
   attr_accessible :title, :description
+
+  validates :title, presence: true
 end

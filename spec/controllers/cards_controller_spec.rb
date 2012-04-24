@@ -14,20 +14,29 @@ describe CardsController do
   describe :create do
     let(:card) { FactoryGirl.build(:card, deck: deck) }
 
-    context "with valid data" do
-      before { json_create params }
+    context "as an authenticated user" do
+      context "with valid data" do
+        before { json_create params }
 
-      specify { response.should be_success }
-      it { expect { json_create params }.to change(Card, :count).by(1) }
+        specify { response.should be_success }
+        it { expect { json_create params }.to change(Card, :count).by(1) }
+      end
+
+      context "with invalid data" do
+        it { expect { json_create params.except(:deck_id) }.to raise_exception }
+
+        it do
+          json_create params.merge(card: card_attr.except('front'))
+          response.should_not be_success
+        end
+      end
     end
 
-    context "with invalid data" do
-      it { expect { json_create params.except(:deck_id) }.to raise_exception }
+    context "as an unauthenticated user" do
+      before { json_create params.except(:auth_token) }
 
-      it do
-        json_create params.merge(card: card_attr.except('front'))
-        response.should_not be_success
-      end
+      specify { response.should_not be_success }
+      it { expect { json_create params.except(:auth_token) }.not_to change(Card, :count) }
     end
   end
 

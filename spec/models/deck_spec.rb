@@ -6,6 +6,7 @@ describe Deck do
   it { should belong_to(:user) }
   it { should allow_mass_assignment_of :title }
   it { should allow_mass_assignment_of :description }
+  it { should validate_presence_of :title }
 
   context "fresh out of the factory" do
     subject { FactoryGirl.create(:deck) }
