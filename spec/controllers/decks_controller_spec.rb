@@ -43,8 +43,14 @@ describe DecksController do
   describe :update do
     let(:deck) { FactoryGirl.create(:deck, user: user) }
 
-    before { json_update params.merge(format: :json, id: deck.id, user_id: deck.user.id) }
+    context "with valid data" do
+      before { json_update params.merge(format: :json, id: deck.id, user_id: deck.user.id) }
+      specify { response.should be_success }
+    end
 
-    specify { response.should be_success }
+    context "with invalid data" do
+      before { json_update params.merge(format: :json, id: deck.id, user_id: deck.user.id, deck: deck_attr.merge(title: nil)) }
+      specify { response.should_not be_success }
+    end
   end
 end
