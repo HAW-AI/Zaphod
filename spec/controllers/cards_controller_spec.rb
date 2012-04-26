@@ -53,7 +53,7 @@ describe CardsController do
     context "with invalid data" do
       before { json_update params.merge(id: card.id, card: card_attr.merge(:front => nil)) }
       it { response.should_not be_success }
-      it "should respond with appropriate status"
+      it { response.status.should == 422 }
     end
   end
 end
