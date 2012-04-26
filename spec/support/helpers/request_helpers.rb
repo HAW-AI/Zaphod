@@ -4,7 +4,7 @@ module RequestHelpers
   end
 
   def do_update(data={})
-    post :update, data
+    put :update, data
   end
 
   def json_create(data={})
