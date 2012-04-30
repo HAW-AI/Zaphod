@@ -7,4 +7,8 @@ class CardsController < ResourceController
 		@card.deck = @deck
 		create!
 	end
+
+  def next
+    respond_with Card.first
+  end
 end
