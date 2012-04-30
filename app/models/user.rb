@@ -11,4 +11,6 @@ class User < ActiveRecord::Base
 
   has_many :decks
   has_many :cards
+  has_many :collaborators
+  has_many :collaborator_decks, through: :collaborators
 end
