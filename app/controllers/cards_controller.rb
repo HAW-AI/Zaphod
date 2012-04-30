@@ -9,6 +9,15 @@ class CardsController < ResourceController
 	end
 
   def next
-    respond_with Card.first
+    respond_with Card.next_for(current_user)
+  end
+
+  def update
+		@card = Card.find(params[:id])
+    score = Score.for(current_user, @card)
+    if [:known, :unkown].include? params[:event]
+      score.send(params[:event])
+    end
+    respond_with @card
   end
 end
