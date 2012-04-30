@@ -5,6 +5,7 @@ describe Card do
   it { should_not allow_mass_assignment_of :updated_at }
   it { should belong_to(:user) }
   it { should belong_to(:deck) }
+  it { should have_many(:scores) }
   it { should allow_mass_assignment_of :front }
   it { should allow_mass_assignment_of :back }
   it { should validate_presence_of :front }
