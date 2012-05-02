@@ -13,11 +13,14 @@ class CardsController < ResourceController
   end
 
   def update
+    # update score
 		@card = Card.find(params[:id])
     score = Score.for(current_user, @card)
     if [:known, :unkown].include? params[:event]
       score.send(params[:event])
     end
-    respond_with @card
+
+    # update rest
+    super
   end
 end
