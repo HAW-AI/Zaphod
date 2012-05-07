@@ -1,4 +1,6 @@
 Zaphod::Application.routes.draw do
+  root to: "index#index"
+
   resources :users
   resources :decks, shallow: true do
     resources :cards do
