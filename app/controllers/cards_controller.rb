@@ -1,6 +1,6 @@
 class CardsController < ResourceController
-	belongs_to :deck
-	action :create, :update
+	belongs_to :deck, shallow: true
+	actions :create, :update, :show
 
 	def create
 		@card = Card.new(params[:card])

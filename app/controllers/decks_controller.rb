@@ -1,6 +1,5 @@
 class DecksController < ResourceController
-  belongs_to :user
-  action :create, :update
+  actions :create, :update, :show
 
   def create
     @deck = Deck.new(params[:deck])

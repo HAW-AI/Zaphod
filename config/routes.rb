@@ -1,10 +1,9 @@
 Zaphod::Application.routes.draw do
-  resources :users, shallow: true do
-    resources :decks do
-      resources :cards do
-        collection do
-          get 'next'
-        end
+  resources :users
+  resources :decks, shallow: true do
+    resources :cards do
+      collection do
+        get 'next'
       end
     end
   end
