@@ -23,4 +23,9 @@ class CardsController < ResourceController
     # update rest
     super
   end
+
+
+  def index
+    respond_with Card.find_by_deck_id(params[:deck_id])
+  end
 end
