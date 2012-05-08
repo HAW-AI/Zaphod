@@ -7,6 +7,8 @@ gem 'inherited_resources'
 
 gem 'sqlite3'
 
+gem 'ejs'
+
 group :development, :test do
   # Testing
   gem 'rspec-rails'
