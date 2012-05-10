@@ -1,5 +1,12 @@
 Zaphod::Application.routes.draw do
-  root to: "index#index"
+  class DefaultFormatMatcher
+    def matches?(request)
+      # only match html format
+      request.path_parameters[:format].nil?
+    end
+  end
+
+  match "*path" => "index#index", constraints: DefaultFormatMatcher.new
 
   resources :users
   resources :decks, shallow: true do
