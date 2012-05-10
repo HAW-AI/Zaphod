@@ -6,6 +6,7 @@ Zaphod::Application.routes.draw do
     end
   end
 
+  root to: "index#index"
   match "*path" => "index#index", constraints: DefaultFormatMatcher.new
 
   resources :users
