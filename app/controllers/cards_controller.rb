@@ -26,6 +26,6 @@ class CardsController < ResourceController
 
 
   def index
-    respond_with Card.find_by_deck_id(params[:deck_id])
+    respond_with Card.find_all_by_deck_id(params[:deck_id])
   end
 end
