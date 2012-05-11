@@ -1,6 +1,11 @@
 Zaphod::Application.routes.draw do
   class DefaultFormatMatcher
     def matches?(request)
+      # jasminerice adds /jasmine route for js testing
+      if Rails.env.development? && request.path_parameters[:path] == 'jasmine'
+        return false
+      end
+
       # only match html format
       request.path_parameters[:format].nil?
     end

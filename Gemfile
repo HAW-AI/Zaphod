@@ -14,6 +14,9 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'shoulda-matchers'
+
+  gem 'coffee-rails' # for jasminerice
+  gem 'jasminerice'
 end
 
 group :development do
