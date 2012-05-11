@@ -8,16 +8,13 @@ var Zaphod = {
   },
 
 
-  // valid options: model, id
-  // or [{model, id}]
+  // takes a {modelName, id}
+  // if a model is the child of a parent object call the function with both
+  // urlFor({modelName: parentName, id}, {modelName: childName, id})
   urlFor: function(options) {
-    if (!_.isArray(options)) {
-      options = [options];
-    }
-
     var url = '';
 
-    _(options).each(function(opts) {
+    _(arguments).each(function(opts) {
       url += '/' + opts.modelName + 's';
       if (opts.id) url += '/' + opts.id;
     });
