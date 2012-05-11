@@ -13,4 +13,10 @@
 //= require jquery
 //= require underscore
 //= require backbone
-//= require_tree .
+//
+//= require zaphod
+//= require_tree ./models
+//= require_tree ./collections
+//= require_tree ../templates
+//= require_tree ./views
+//= require router
