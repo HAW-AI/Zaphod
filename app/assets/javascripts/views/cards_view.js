@@ -9,12 +9,12 @@ Zaphod.CardsView = Backbone.View.extend({
   add: function(card) {
     var view = new Zaphod.CardView({ model: card, el: $('<div></div>') });
     console.log($(this.el))
-    $(this.el).append(view.render().el)
+    this.$el.append(view.render().el)
   },
 
   render: function() {
-    //$(this.el).html(this.template(this.model.toJSON()));
-    $(this.el).html("COLLECTION");
+    //this.$el.html(this.template(this.model.toJSON()));
+    this.$el.html("COLLECTION");
     return this;
   }
 });
