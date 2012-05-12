@@ -1,9 +1,7 @@
 Zaphod.CardsView = Backbone.View.extend({
   initialize: function() {
     _.bindAll(this, 'render', 'add');
-    var collection = new Zaphod.Cards();
-    collection.bind('add', this.add);
-    collection.fetch({ add: true });
+    this.collection.bind('add', this.add);
   },
 
   add: function(card) {
