@@ -9,6 +9,16 @@ describe Card do
   it { should allow_mass_assignment_of :front }
   it { should allow_mass_assignment_of :back }
   it { should validate_presence_of :front }
+  it { should validate_presence_of :user }
+  it { should validate_presence_of :deck }
+
+  it "should belong to a saved deck" do
+    should validate_presence_of :deck_id 
+  end
+
+  it "should have a saved user (creator)" do
+    should validate_presence_of :user_id 
+  end
 
   context "fresh out of the factory" do
     subject { FactoryGirl.create(:card) }
