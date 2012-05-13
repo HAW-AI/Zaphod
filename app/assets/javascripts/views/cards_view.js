@@ -1,18 +1,32 @@
 Zaphod.CardsView = Backbone.View.extend({
+  template: JST['templates/cards'],
+
+  events: {
+    'click .add': 'createCard'
+  },
+
   initialize: function() {
-    _.bindAll(this, 'render', 'add');
+    _.bindAll(this, 'render', 'add', 'createCard');
+
+    // render to be able to add
+    this.render();
+
     this.collection.bind('add', this.add);
+    this.collection.each(this.add);
   },
 
   add: function(card) {
     var view = new Zaphod.CardView({ model: card, el: $('<div></div>') });
     console.log($(this.el))
-    this.$el.append(view.render().el)
+    this.$('.cards').append(view.render().el)
   },
 
   render: function() {
-    //this.$el.html(this.template(this.model.toJSON()));
-    this.$el.html("COLLECTION");
+    this.$el.html(this.template());
     return this;
+  },
+
+  createCard: function() {
+    this.collection.create({ deck_id: 1 });
   }
 });
