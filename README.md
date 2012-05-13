@@ -16,6 +16,8 @@ Es wird erwartet sich an Rails-Konventionen zu halten. Eine gute Zusammenfassung
 ### Frontend
 * **[Backbone]** als Basisframework ([Buch])
 * **[Underscore]** als Ergänzung zur JS-Standardbibliothek
+* **[Handlebars]** als Template-Engine
+* **[Jasmine]** als Testing-Framework
 
 
 
@@ -29,3 +31,5 @@ Es wird erwartet sich an Rails-Konventionen zu halten. Eine gute Zusammenfassung
 [Backbone]: http://documentcloud.github.com/backbone/
 [Buch]: http://addyosmani.github.com/backbone-fundamentals/
 [Underscore]: http://documentcloud.github.com/underscore/
+[Handlebars]: http://handlebarsjs.com/
+[Jasmine]: http://pivotal.github.com/jasmine/
