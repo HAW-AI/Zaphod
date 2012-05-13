@@ -1,6 +1,9 @@
 Zaphod::Application.routes.draw do
-  class DefaultFormatMatcher
+  class DefaultFormatGetMatcher
     def matches?(request)
+      # only match GET
+      return false unless request.method == 'GET'
+
       # jasminerice adds /jasmine route for js testing
       if Rails.env.development? && request.path_parameters[:path] == 'jasmine'
         return false
@@ -12,7 +15,7 @@ Zaphod::Application.routes.draw do
   end
 
   root to: "index#index"
-  match "*path" => "index#index", constraints: DefaultFormatMatcher.new
+  match "*path" => "index#index", constraints: DefaultFormatGetMatcher.new
 
   resources :users
   resources :decks, shallow: true do
