@@ -5,15 +5,11 @@ Zaphod.Card = Backbone.Model.extend({
   },
 
   validate: function(attrs) {
-    var errors = {};
-
     if (!_.has(attrs, 'front') ||
         (_.isString(attrs.front) && attrs.front.length == 0))
     {
-      errors.front = 'must not be empty';
+      return { front: ['must not be empty'] };
     }
-
-    return _.isEmpty(errors) ? undefined : errors;
   },
 
   url: function() {
