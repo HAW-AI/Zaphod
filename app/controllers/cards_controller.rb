@@ -4,6 +4,7 @@ class CardsController < ResourceController
 
 	def create
 		@card = Card.new(params[:card])
+    @card.user = current_user
 
     # dont use @deck ! it's lazy!
 		@card.deck = parent
