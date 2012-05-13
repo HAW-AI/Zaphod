@@ -23,3 +23,7 @@ group :development do
   gem 'guard-rspec', require: false
   gem 'growl', require: false
 end
+
+group :assets do
+  gem 'handlebars_assets'
+end
