@@ -5,27 +5,27 @@ var Zaphod = {
   router: null,
   currentUser: {
     authToken: 'valid_auth_token4'
-  },
-
-
-  // takes a {modelName, id}
-  // if a model is the child of a parent object call the function with both
-  // urlFor({modelName: parentName, id}, {modelName: childName, id})
-  urlFor: function(options) {
-    var url = '';
-
-    _(arguments).each(function(opts) {
-      url += '/' + opts.modelName + 's';
-      if (opts.id) url += '/' + opts.id;
-    });
-
-    url += '.json?auth_token=' + Zaphod.currentUser.authToken;
-
-    return url;
   }
 };
 
 (function($) {
+  var backboneSync = Backbone.sync;
+  Backbone.sync = function(method, model, options) {
+    options = _.clone(options)
+
+    // add .json to URIs for GET requests
+    if (method == 'read' && !options.url && model.url) {
+      var url = _.isFunction(model.url) ? model.url() : model.url;
+      options.url = url + '.json';
+    }
+
+    // send auth token
+    options.data = options.data ? _.clone(options.data) : {};
+    options.data = _.extend(options.data, { auth_token: Zaphod.currentUser.authToken });
+
+    return backboneSync(method, model, options);
+  };
+
   $(document).ready(function() {
     Zaphod.router = new Zaphod.Router();
     Backbone.history.start({ pushState: true });

@@ -12,9 +12,7 @@ Zaphod.Card = Backbone.Model.extend({
     }
   },
 
-  url: function() {
-    if (this.isNew())
-      return Zaphod.urlFor({ modelName: 'deck', id: 1 }, { modelName: 'card' });
-    return Zaphod.urlFor({ modelName: 'card', id: this.get('id') });
+  urlRoot: function() {
+    return this.isNew() ? '/decks/1/cards' : '/cards';
   }
 });
