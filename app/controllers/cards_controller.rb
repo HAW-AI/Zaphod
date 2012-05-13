@@ -4,7 +4,10 @@ class CardsController < ResourceController
 
 	def create
 		@card = Card.new(params[:card])
-		@card.deck = @deck
+
+    # dont use @deck ! it's lazy!
+		@card.deck = parent
+
 		create!
 	end
 
