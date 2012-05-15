@@ -27,6 +27,6 @@ Zaphod.CardsView = Backbone.View.extend({
   },
 
   createCard: function() {
-    this.collection.create({ deck_id: 1 });
+    this.collection.create({ deckId: 1 });
   }
 });

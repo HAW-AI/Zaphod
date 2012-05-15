@@ -13,7 +13,7 @@ Zaphod.Router = Backbone.Router.extend({
 	},
 
 	cards: function(deckId) {
-    var collection = new Zaphod.Cards();
+    var collection = new Zaphod.Cards({ deckId: deckId });
 		var view = new Zaphod.CardsView({ collection: collection, el: $('#content') });
     collection.fetch({ add: true });
 	}
