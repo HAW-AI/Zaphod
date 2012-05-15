@@ -8,24 +8,20 @@ var Zaphod = {
   }
 };
 
+var backboneSync = Backbone.sync;
+Backbone.sync = function(method, model, options) {
+  options = _.clone(options) || {};
+
+  // add .json and auth_token
+  if (!options.url && model.url) {
+    var url = _.isFunction(model.url) ? model.url() : model.url;
+    options.url = url + '.json?auth_token=' + Zaphod.currentUser.authToken;
+  }
+
+  return backboneSync(method, model, options);
+};
+
 (function($) {
-  var backboneSync = Backbone.sync;
-  Backbone.sync = function(method, model, options) {
-    options = _.clone(options)
-
-    // add .json to URIs for GET requests
-    if (method == 'read' && !options.url && model.url) {
-      var url = _.isFunction(model.url) ? model.url() : model.url;
-      options.url = url + '.json';
-    }
-
-    // send auth token
-    options.data = options.data ? _.clone(options.data) : {};
-    options.data = _.extend(options.data, { auth_token: Zaphod.currentUser.authToken });
-
-    return backboneSync(method, model, options);
-  };
-
   $(document).ready(function() {
     Zaphod.router = new Zaphod.Router();
     Backbone.history.start({ pushState: true });
