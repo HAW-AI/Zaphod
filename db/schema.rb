@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120519112017) do
+ActiveRecord::Schema.define(:version => 20120519193905) do
 
   create_table "cards", :force => true do |t|
     t.text     "front"
@@ -39,10 +39,10 @@ ActiveRecord::Schema.define(:version => 20120519112017) do
   create_table "scores", :force => true do |t|
     t.integer  "user_id"
     t.integer  "card_id"
-    t.integer  "count"
-    t.float    "score"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer  "count",      :default => 1
+    t.float    "score",      :default => 0.5
+    t.datetime "created_at",                  :null => false
+    t.datetime "updated_at",                  :null => false
   end
 
   create_table "users", :force => true do |t|
