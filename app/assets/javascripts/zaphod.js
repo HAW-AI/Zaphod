@@ -4,7 +4,7 @@ var Zaphod = {
 
   router: null,
   currentUser: {
-    authToken: 'valid_auth_token4'
+    authToken: 'valid_auth_token2'
   }
 };
 
