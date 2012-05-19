@@ -7,6 +7,7 @@ describe User do
   it { should validate_presence_of(:email) }
   it { should have_many(:decks) }
   it { should have_many(:scores) }
+  it { should have_many(:collaborator_decks) }
 
   context "given there exist already some other" do
     # validate_uniqueness_of requires at least one database entry
