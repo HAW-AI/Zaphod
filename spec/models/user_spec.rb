@@ -5,7 +5,7 @@ describe User do
   it { should_not allow_mass_assignment_of :updated_at }
   it { should validate_presence_of(:username) }
   it { should validate_presence_of(:email) }
-  it { should have_many(:decks) }
+  it { should have_many(:collaborator_decks) }
   it { should have_many(:scores) }
 
   context "given there exist already some other" do

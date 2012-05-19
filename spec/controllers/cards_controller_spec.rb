@@ -6,7 +6,7 @@ describe CardsController do
   let(:params) do
     {
       card: card_attr,
-      auth_token: card.user.authentication_token,
+      auth_token: card.deck.users.first.authentication_token,
       deck_id: deck.id
     }
   end

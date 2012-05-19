@@ -11,10 +11,9 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120430152506) do
+ActiveRecord::Schema.define(:version => 20120519112017) do
 
   create_table "cards", :force => true do |t|
-    t.integer  "user_id"
     t.text     "front"
     t.text     "back"
     t.integer  "deck_id"
@@ -31,7 +30,6 @@ ActiveRecord::Schema.define(:version => 20120430152506) do
   end
 
   create_table "decks", :force => true do |t|
-    t.integer  "user_id"
     t.string   "title"
     t.text     "description"
     t.datetime "created_at",  :null => false
