@@ -6,13 +6,12 @@ describe DecksController do
   let(:params) do
     {
       deck: deck_attr,
-      auth_token: deck.user.authentication_token,
-      user_id: user.id
+      auth_token: user.authentication_token,
     }
   end
 
   describe :create do
-    let(:deck) { FactoryGirl.build(:deck, user: user) }
+    let(:deck) { FactoryGirl.build(:deck) }
 
     context "as an authenticated user" do
       context "with valid data" do
@@ -23,8 +22,6 @@ describe DecksController do
       end
 
       context "with invalid data" do
-        it { expect { json_create params.except(:user_id) }.to raise_exception }
-
         it do
           json_create params.merge(deck: deck_attr.except('title'))
           response.should_not be_success
@@ -41,15 +38,15 @@ describe DecksController do
   end
 
   describe :update do
-    let(:deck) { FactoryGirl.create(:deck, user: user) }
+    let(:deck) { FactoryGirl.create(:deck) }
 
     context "with valid data" do
-      before { json_update params.merge(id: deck.id, user_id: deck.user.id) }
+      before { json_update params.merge(id: deck.id) }
       specify { response.should be_success }
     end
 
     context "with invalid data" do
-      before { json_update params.merge(id: deck.id, user_id: deck.user.id, deck: deck_attr.merge(title: nil)) }
+      before { json_update params.merge(id: deck.id, deck: deck_attr.merge(title: nil)) }
       specify { response.should_not be_success }
     end
   end

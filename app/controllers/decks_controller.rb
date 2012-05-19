@@ -3,7 +3,6 @@ class DecksController < ResourceController
 
   def create
     @deck = Deck.new(params[:deck])
-    @deck.user = @user
     create!
   end
 
