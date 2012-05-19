@@ -1,9 +1,10 @@
 Zaphod.Router = Backbone.Router.extend({
 	routes: {
 		'': 'decks',
-		'cards/:id': 'card',
-		'decks/:id/cards': 'cards',
-    'decks': 'decks'
+    'decks': 'decks',
+    'decks/:id': 'deck',
+    'decks/:id/cards': 'cards',
+		'cards/:id': 'card'
 	},
 
 	card: function(id) {
@@ -23,5 +24,11 @@ Zaphod.Router = Backbone.Router.extend({
     var collection = new Zaphod.Decks();
     var view = new Zaphod.DecksView({ collection: collection, el: $('#content') });
     collection.fetch();
+  },
+
+  deck: function(id) {
+    var model = new Zaphod.Deck({ id: id });
+    var view = new Zaphod.DeckView({ model: model, el: $('#content') });
+    model.fetch();
   }
 });
