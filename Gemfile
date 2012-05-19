@@ -8,6 +8,8 @@ gem 'inherited_resources'
 gem 'sqlite3'
 
 gem 'ejs'
+gem 'execjs'
+gem 'therubyracer'
 
 group :development, :test do
   # Testing
