@@ -12,7 +12,7 @@ class CardsController < ResourceController
 	end
 
   def next
-    respond_with Card.next_for(current_user)
+    respond_with Card.next_for(current_user, parent)
   end
 
   def update
