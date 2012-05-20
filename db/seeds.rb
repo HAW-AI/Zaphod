@@ -7,13 +7,9 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-if Rails.env == "development"
+if Rails.env.development?
   FactoryGirl.create :card
-
-  c = Card.new
-  c.user_id = 2
-  c.deck_id = 1
-  c.front = 'super cool front side'
-  c.back = 'not so cool back side'
-  c.save!
+  deck = FactoryGirl.create :deck
+  FactoryGirl.create :card, deck: deck
+  FactoryGirl.create :card, deck: deck
 end
