@@ -19,4 +19,28 @@ describe Card do
 
     it { should be_valid }
   end
+
+  describe :"self.next_for" do
+    let(:deck) { FactoryGirl.create(:deck) }
+    let(:user) { FactoryGirl.create(:user) }
+
+    before do
+      Card.delete_all
+      Score.delete_all
+    end
+
+    subject { Card.next_for(user, deck) }
+
+    context "with an empty deck" do
+      it { should be_nil }
+    end
+
+    context "with a filled deck" do
+      before do
+        5.times { FactoryGirl.create(:card, deck: deck) }
+      end
+
+      it { should be_instance_of Card }
+    end
+  end
 end

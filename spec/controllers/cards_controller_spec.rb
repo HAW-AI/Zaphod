@@ -56,4 +56,21 @@ describe CardsController do
       it { response.status.should == 422 }
     end
   end
+
+  describe :next do
+    let(:card) { FactoryGirl.create(:card) } # dummy for line 5
+
+    before do
+      5.times { FactoryGirl.create(:card, deck: deck) }
+      get :next, params.merge(id: deck.id, format: :json)
+    end
+
+    subject { ActiveSupport::JSON.decode(response.body) }
+
+    it "should be a card in JSON format" do
+      Card.accessible_attributes.to_a.select { |s| !s.empty? }.each do |k|
+        subject.keys.should include k
+      end
+    end
+  end
 end
