@@ -1,6 +1,6 @@
 describe('CardView', function() {
   beforeEach(function() {
-    this.card = new Zaphod.Card({ front: 'front', back: 'back' });
+    this.card = new Zaphod.Card({ deckId: 1, front: 'front', back: 'back' });
     this.view = new Zaphod.CardView({ model: this.card, el: $('<div/>') });
   });
 

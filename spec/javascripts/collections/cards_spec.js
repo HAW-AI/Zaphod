@@ -6,7 +6,7 @@ describe('Cards', function() {
     });
 
     it('optionally takes models', function() {
-      var models = [ new Zaphod.Card(), new Zaphod.Card() ];
+      var models = [ new Zaphod.Card({ id: 1 }), new Zaphod.Card({ id: 2 }) ];
       var cards;
       expect(function() { cards = new Zaphod.Cards(models); }).toThrow();
       expect(function() { cards = new Zaphod.Cards(models, { deckId: 1337 }); }).not.toThrow();
