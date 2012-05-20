@@ -10,6 +10,17 @@ describe DecksController do
     }
   end
 
+  describe :index do
+    let(:deck) { FactoryGirl.create(:deck) }
+
+    context "as an authenticated user" do
+      before { json_get_index params }
+
+      specify { response.should be_success }
+      specify { response.body.should_not be_empty }
+    end
+  end
+
   describe :create do
     let(:deck) { FactoryGirl.build(:deck) }
 
