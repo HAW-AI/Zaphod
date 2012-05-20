@@ -5,6 +5,11 @@ var Zaphod = {
   router: null,
   currentUser: {
     authToken: 'valid_auth_token2'
+  },
+
+  apiUrl: function(url) {
+    // add .json and auth_token
+    return url + '.json?auth_token=' + Zaphod.currentUser.authToken;
   }
 };
 
@@ -12,10 +17,9 @@ var backboneSync = Backbone.sync;
 Backbone.sync = function(method, model, options) {
   options = _.clone(options) || {};
 
-  // add .json and auth_token
   if (!options.url && model.url) {
     var url = _.isFunction(model.url) ? model.url() : model.url;
-    options.url = url + '.json?auth_token=' + Zaphod.currentUser.authToken;
+    options.url = Zaphod.apiUrl(url);
   }
 
   return backboneSync(method, model, options);
