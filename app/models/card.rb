@@ -7,22 +7,23 @@ class Card < ActiveRecord::Base
   validates :front, :deck, :deck_id, presence: true
 
   def self.next_for(user, deck)
-    find_next = lambda do
-      scores = Score.joins(:card).where(:user_id => user.id).where(:cards => {:deck_id => deck.id}).order(:score)
-      if scores.empty? then nil else scores.take(5).shuffle.first.card end
+    scores = scores_for(user, deck)
+
+    if scores.count != deck.cards.count
+      # create scores for new cards
+      deck.cards.each { |c| Score.for(user, c) }
+      scores = scores_for(user, deck)
     end
 
-    card = find_next[]
+    scores.take(5).shuffle.first.card unless scores.empty?
+  end
 
-    if card.nil?
-      # no scores generated yet for this user/deck combo?
-      Card.find_all_by_deck_id(deck.id).each do |card|
-        Score.for(user, card)
-      end
 
-      card = find_next[]
-    end
+  private
 
-    card
+  def self.scores_for(user, deck)
+    Score.joins(:card)
+         .where(user_id: user.id, cards: { deck_id: deck.id })
+         .order(:score)
   end
 end
