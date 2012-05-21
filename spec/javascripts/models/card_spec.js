@@ -23,13 +23,13 @@ describe('Card', function() {
   describe('validations', function() {
     describe('without front text', function() {
       it('is invalid', function() {
-        expect(new Zaphod.Card({ id: 1, front: '' }).isValid()).toBe(false);
+        expect(new Zaphod.Card({ id: 1, front: '' })).toBeInvalid();
       });
     });
 
     describe('without back text', function() {
       it('is valid', function() {
-        expect(new Zaphod.Card({ id: 1, back: '' }).isValid()).toBe(true);
+        expect(new Zaphod.Card({ id: 1, back: '' })).toBeValid();
       });
     });
   });
