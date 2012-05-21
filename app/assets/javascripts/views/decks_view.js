@@ -1,18 +1,35 @@
 Zaphod.DecksView = Backbone.View.extend({
   template: JST['decks'],
 
+  events: {
+    'click .add': 'createDeck'
+  },
+
   initialize: function() {
-    _.bindAll(this, 'render');
+    _.bindAll(this, 'render', 'createDeck', 'reset', 'add');
 
     // render to be able to add
     this.render();
 
-    this.collection.bind('add reset remove', this.render);
+    this.collection.bind('reset', this.reset);
+    this.collection.bind('add', this.add);
   },
 
   render: function() {
-    var data = { decks: this.collection.invoke('toJSON') };
-    this.$el.html(this.template(data, this._helpers));
+    this.$el.html(this.template());
     return this;
+  },
+
+  reset: function() {
+    this.render();
+    this.collection.each(this.add)
+  },
+
+  add: function(deck) {
+    this.$('#decks').append(new Zaphod.DeckItemView({ model: deck }).render().el);
+  },
+
+  createDeck: function() {
+    this.collection.create();
   }
 });
