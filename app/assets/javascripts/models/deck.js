@@ -1,6 +1,6 @@
 Zaphod.Deck = Backbone.Model.extend({
   defaults: {
-    title: '',
+    title: 'Deck Title',
     description: ''
   },
 
