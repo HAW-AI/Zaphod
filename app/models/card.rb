@@ -8,9 +8,7 @@ class Card < ActiveRecord::Base
 
   def self.next_for(user, deck)
     find_next = lambda do
-      scores = Score.where(user_id: user.id).order(:score)
-      # can the next line not better be done within active record?
-      scores = scores.select { |s| s.card.deck_id = deck.id }
+      scores = Score.joins(:card).where(:user_id => user.id).where(:cards => {:deck_id => deck.id}).order(:score)
       if scores.empty? then nil else scores.take(5).shuffle.first.card end
     end
 
