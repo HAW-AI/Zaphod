@@ -5,6 +5,8 @@ describe CurrentUsersController do
   let(:params) do
     {
       auth_token: user.authentication_token,
+      email: user.email,
+      password: FactoryGirl.build(:user).password
     }
   end
 
@@ -32,14 +34,7 @@ describe CurrentUsersController do
 
   describe :create do
     context "with valid data" do
-      let(:params) do
-        {
-          email: user.email,
-          username: user.username,
-          password: user.password
-        }
-      end
-      before { json_create params }
+      before { json_create params.except(:auth_token) }
       subject { response }
 
       it { should be_success }

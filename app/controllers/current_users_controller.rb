@@ -1,22 +1,28 @@
 class CurrentUsersController < ResourceController
   before_filter :require_login, except: [:create]
+  actions :show
+  defaults :resource_class => User, :instance_name => 'user'
 
   def show
-    respond_with current_user
+    @user = current_user
+    show!
   end
 
   def create
-    @user = login(params[:email], params[:password], params[:remember_me])
-    if @user
-      respond_with @user
-    else
-      error = { error: "Authentication failed" }
-      respond_with(error, status: 401, location: nil)
+    @user = User.authenticate(params[:email], params[:password])
+    respond_to do |format|
+      if @user
+        format.json { render json: @user }
+      else
+        format.json { render json: nil, status: :unprocessable_entity }
+      end
     end
   end
 
   def destroy
     logout
-    respond_with(status: 200, location: nil)
+    respond_to do |format|
+      format.json { head :no_content }
+    end
   end
 end
