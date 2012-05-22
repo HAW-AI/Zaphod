@@ -11,12 +11,10 @@ class User < ActiveRecord::Base
   has_many :collaborator_decks, through: :collaborators, source: :deck
   has_many :scores
 
-  after_create :generate_authentication_token
+  after_create :reset_authentication_token
 
-  private
-
-  def generate_authentication_token
-    authentication_token = "valid_auth_token" + id.to_s
-    save
+  def reset_authentication_token
+    self.authentication_token = Sorcery::Model::TemporaryToken.generate_random_token
+    self.save
   end
 end

@@ -41,4 +41,19 @@ describe CurrentUsersController do
       specify { response.body.should == user.to_json }
     end
   end
+
+  describe :destroy do
+    context "with valid data" do
+      let!(:before_auth_token) { user.authentication_token }
+      before { json_destroy params }
+      subject { response }
+
+      it { should be_success }
+      specify { response.body.should == " " }
+      specify do
+        user.reload
+        user.authentication_token.should_not == before_auth_token
+      end
+    end
+  end
 end

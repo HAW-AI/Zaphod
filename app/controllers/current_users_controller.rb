@@ -20,7 +20,10 @@ class CurrentUsersController < ResourceController
   end
 
   def destroy
+    @user = current_user
+    @user.reset_authentication_token
     logout
+
     respond_to do |format|
       format.json { head :no_content }
     end
