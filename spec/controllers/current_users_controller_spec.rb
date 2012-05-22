@@ -29,4 +29,21 @@ describe CurrentUsersController do
       end
     end
   end
+
+  describe :create do
+    context "with valid data" do
+      let(:params) do
+        {
+          email: user.email,
+          username: user.username,
+          password: user.password
+        }
+      end
+      before { json_create params }
+      subject { response }
+
+      it { should be_success }
+      specify { response.body.should == user.to_json }
+    end
+  end
 end

@@ -1,5 +1,5 @@
 class UsersController < ResourceController
-  before_filter :authenticate_user!, :except => :create
+  before_filter :require_login, except: :create
 
   def create
     @user = User.new(params[:user])

@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
   private
 
   def generate_authentication_token
-    authentication_token = "valid_auth_token" + id
+    authentication_token = "valid_auth_token" + id.to_s
     save
   end
 end
