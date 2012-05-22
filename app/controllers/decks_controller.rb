@@ -1,5 +1,5 @@
 class DecksController < ResourceController
-  actions :create, :update, :show
+  actions :create, :update, :show, :destroy
 
   def index
     respond_with current_user.collaborator_decks
