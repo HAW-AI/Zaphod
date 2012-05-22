@@ -1,4 +1,4 @@
 class UsersController < ResourceController
-  before_filter :authenticate_user!, :except => :create
+  before_filter :require_login, except: :create
   actions :create
 end

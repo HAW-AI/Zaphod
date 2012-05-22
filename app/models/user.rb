@@ -1,16 +1,20 @@
 class User < ActiveRecord::Base
-  # Include default devise modules. Others available are:
-  # :encryptable, :confirmable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable, :token_authenticatable,
-         :recoverable, :rememberable, :trackable, :validatable, :lockable
-
+  authenticates_with_sorcery!
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :username, :email, :password, :password_confirmation, :remember_me
+  attr_accessible :username, :email, :password, :remember_me
 
   validates :username, :email, presence: true, uniqueness: true
+  validates :password, presence: true, on: :create
 
   has_many :cards
   has_many :collaborators
   has_many :collaborator_decks, through: :collaborators, source: :deck
   has_many :scores
+
+  after_create :reset_authentication_token
+
+  def reset_authentication_token
+    self.authentication_token = Sorcery::Model::TemporaryToken.generate_random_token
+    self.save
+  end
 end

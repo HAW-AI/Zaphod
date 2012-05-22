@@ -1,7 +1,8 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.2'
-gem 'devise'
+gem 'sorcery', git: 'https://github.com/patrickdet/sorcery.git', branch: 'stateless_auth_token'
+gem 'bcrypt-ruby'
 gem 'cancan'
 gem 'inherited_resources'
 
