@@ -18,4 +18,15 @@ describe('DeckItemView', function() {
       });
     });
   });
+
+  describe('destroy', function() {
+    it('tries to destroy the model', function() {
+      spyOn(this.deck, 'destroy');
+
+      this.view.render();
+      this.view.$('.destroy').click();
+
+      expect(this.deck.destroy).toHaveBeenCalled();
+    });
+  });
 });

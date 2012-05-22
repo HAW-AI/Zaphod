@@ -2,11 +2,12 @@ Zaphod.DeckItemView = Backbone.View.extend({
   template: JST['deck_item'],
 
   events: {
-    'click .save':    'save'
+    'click .save':    'save',
+    'click .destroy': 'destroy'
   },
 
   initialize: function() {
-    _.bindAll(this, 'render');
+    _.bindAll(this, 'render', 'destroy');
     this.model.bind('change', this.render);
     this.render();
   },
@@ -21,5 +22,9 @@ Zaphod.DeckItemView = Backbone.View.extend({
       title: this.$('.title').val(),
       description:  this.$('.description').val()
     });
+  },
+
+  destroy: function() {
+    this.model.destroy();
   }
 });
