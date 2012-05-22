@@ -57,6 +57,31 @@ describe CardsController do
     end
   end
 
+  describe :destroy do
+    let(:card) { FactoryGirl.create(:card, deck: deck) }
+
+    context "with valid data" do
+      # force card creation
+      before { card }
+
+      it "deletes the card" do
+        expect { delete :destroy, params.merge(format: :json, id: card.id, deck_id: card.deck.id) }.to change(Card, :count).by(-1)
+      end
+
+      specify { response.should be_success }
+    end
+
+    context "with invalid data" do
+      it "doesnt find the card to delete" do
+        expect { delete :destroy, params.merge(format: :json) }.to raise_exception(ActiveRecord::RecordNotFound)
+      end
+
+      # rails will respond to ActiveRecord::RecordNotFound with a 404 but not in the test env
+      #specify { response.should_not be_success }
+      #specify { response.status.should == 404 }
+    end
+  end
+
   describe :next do
     let(:card) { FactoryGirl.create(:card) } # dummy for line 5
 
