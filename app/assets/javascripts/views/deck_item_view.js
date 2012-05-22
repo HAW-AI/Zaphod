@@ -7,7 +7,7 @@ Zaphod.DeckItemView = Backbone.View.extend({
   },
 
   initialize: function() {
-    _.bindAll(this, 'render', 'destroy');
+    _.bindAll(this, 'render', 'save', 'destroy');
     this.model.bind('change', this.render);
     this.render();
   },
