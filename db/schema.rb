@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120522064822) do
+ActiveRecord::Schema.define(:version => 20120522072939) do
 
   create_table "cards", :force => true do |t|
     t.text     "front"
@@ -44,5 +44,19 @@ ActiveRecord::Schema.define(:version => 20120522064822) do
     t.datetime "created_at",                  :null => false
     t.datetime "updated_at",                  :null => false
   end
+
+  create_table "users", :force => true do |t|
+    t.string   "username",                     :null => false
+    t.string   "email"
+    t.string   "crypted_password"
+    t.string   "salt"
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
+    t.string   "remember_me_token"
+    t.datetime "remember_me_token_expires_at"
+    t.string   "authentication_token"
+  end
+
+  add_index "users", ["remember_me_token"], :name => "index_users_on_remember_me_token"
 
 end

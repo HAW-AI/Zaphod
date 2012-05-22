@@ -15,6 +15,4 @@ Zaphod::Application.routes.draw do
   end
 
   resource :current_users, path: "current_user", as: "current_user"
-
-  devise_for :users
 end
