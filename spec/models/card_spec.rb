@@ -36,11 +36,35 @@ describe Card do
     end
 
     context "with a filled deck" do
+      let(:num_cards) { 5 }
+
       before do
-        5.times { FactoryGirl.create(:card, deck: deck) }
+        num_cards.times { FactoryGirl.create(:card, deck: deck) }
       end
 
       it { should be_instance_of Card }
+
+      context "when there are only scores for some of the cards" do
+        before do
+          Score.delete_all
+          Score.for(user, deck)
+        end
+
+        specify "only one score exists for a deck with five cards" do
+          deck.cards.count.should == num_cards
+          Score.count.should == 1
+          Score.first.user.should == user
+          Score.first.card.deck.should == deck
+        end
+
+        it "should create scores for new cards" do
+          expect { Card.next_for(user, deck) }.to change(Score, :count).to(num_cards)
+          Score.all.each do |score|
+            score.user.should == user
+            score.card.deck.should == deck
+          end
+        end
+      end
     end
   end
 end
