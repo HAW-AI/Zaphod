@@ -2,7 +2,8 @@ Zaphod.CardView = Backbone.View.extend({
   template: JST['card'],
 
   events: {
-    'click .save':    'save'
+    'click .save':    'save',
+    'click .destroy': 'destroy'
   },
 
   initialize: function() {
@@ -27,5 +28,9 @@ Zaphod.CardView = Backbone.View.extend({
       front: this.$('.front').val(),
       back:  this.$('.back').val()
     });
+  },
+
+  destroy: function() {
+    this.model.destroy();
   }
 });

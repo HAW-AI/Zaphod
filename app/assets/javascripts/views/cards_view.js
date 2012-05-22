@@ -6,18 +6,24 @@ Zaphod.CardsView = Backbone.View.extend({
   },
 
   initialize: function() {
-    _.bindAll(this, 'render', 'add', 'createCard');
+    _.bindAll(this, 'render', 'reset', 'remove', 'add', 'createCard');
 
     // render to be able to add
     this.render();
 
+    this.collection.bind('reset', this.reset);
     this.collection.bind('add', this.add);
+    this.collection.bind('remove', this.reset);
+    this.reset();
+  },
+
+  reset: function() {
+    this.render();
     this.collection.each(this.add);
   },
 
   add: function(card) {
     var view = new Zaphod.CardView({ model: card, el: $('<div></div>') });
-    console.log($(this.el))
     this.$('.cards').append(view.render().el)
   },
 
