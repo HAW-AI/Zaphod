@@ -3,6 +3,10 @@ module RequestHelpers
     get :index, data
   end
 
+  def do_get_show(data = {})
+    get :show, data
+  end
+
   def do_create(data = {})
     post :create, data
   end
@@ -17,6 +21,10 @@ module RequestHelpers
 
   def json_get_index(data={})
     do_get_index data.merge(format: :json)
+  end
+
+  def json_get_show(data={})
+    do_get_show data.merge(format: :json)
   end
 
   def json_create(data={})

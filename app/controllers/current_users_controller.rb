@@ -1,12 +1,11 @@
 class CurrentUsersController < ResourceController
   def show
-    respond_with :code => :success
+    respond_with current_user
   end
 
   def create
     user = login(params[:email], params[:password], params[:remember_me])
     if user
-      #redirect_back_or_to root_url, :notice => "Logged in!"
       respond_with user
     else
       error = { error: "Authentication failed" }
@@ -16,6 +15,6 @@ class CurrentUsersController < ResourceController
 
   def destroy
     logout
-    redirect_to root_url, :notice => "Logged out!"
+    respond_with(status: 200, location: nil)
   end
 end
