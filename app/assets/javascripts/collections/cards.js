@@ -22,5 +22,8 @@ Zaphod.Cards = Backbone.Collection.extend({
     this._deckId = options.deckId;
   },
 
-  url: '/decks/1/cards'
+  url: function() {
+    return '/decks/' + this.deckId() + '/cards';
+  }
+
 });
