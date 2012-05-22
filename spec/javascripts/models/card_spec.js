@@ -33,4 +33,44 @@ describe('Card', function() {
       });
     });
   });
+
+  describe('save', function() {
+    beforeEach(function() {
+      this.deck = new Zaphod.Deck();
+      this.deck.save({}, { async: false });
+      this.card = new Zaphod.Card({ deckId: this.deck.get('id') });
+    });
+
+    afterEach(function() {
+      this.deck.destroy();
+    });
+
+    describe('with a new card', function() {
+      it('saves it to the nested /decks/:deckId/cards path', function() {
+        spyOn($, 'ajax');
+        this.card.save();
+        expect($.ajax).toHaveBeenCalled();
+        var url = this.deck.url() + '/cards';
+        expect($.ajax.mostRecentCall.args[0].url).toIncludeSubstring(url);
+      });
+    });
+
+    describe('with an existing card', function() {
+      beforeEach(function() {
+        this.card.save({}, { async: false });
+      });
+
+      afterEach(function() {
+        this.card.destroy();
+      });
+
+      it('saves it to the flat /cards/:id path', function() {
+        spyOn($, 'ajax');
+        this.card.save();
+        expect($.ajax).toHaveBeenCalled();
+        var url = '/cards/' + this.card.get('id');
+        expect($.ajax.mostRecentCall.args[0].url).toIncludeSubstring(url);
+      });
+    });
+  });
 });

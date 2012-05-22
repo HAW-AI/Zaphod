@@ -4,12 +4,6 @@ describe('LearnView', function() {
     this.view = new Zaphod.LearnView({ deck: this.deck });
     this.view.card = new Zaphod.Card({ id: 1 });
     this.card = this.view.card;
-
-    this.addMatchers({
-      toIncludeSubstring: function(str) {
-        return this.actual.indexOf(str) !== -1;
-      }
-    });
   });
 
   describe('next', function() {

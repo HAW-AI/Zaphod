@@ -9,6 +9,10 @@ beforeEach(function() {
 
     toBeInvalid: function() {
       return !this.actual.isValid();
+    },
+
+    toIncludeSubstring: function(str) {
+      return this.actual.indexOf(str) !== -1;
     }
   });
 });
