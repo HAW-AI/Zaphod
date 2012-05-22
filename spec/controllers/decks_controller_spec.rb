@@ -70,7 +70,7 @@ describe DecksController do
       before { deck }
 
       it "deletes the deck" do
-        expect { delete :destroy, params.merge(format: :json, id: deck.id) }.to change(Deck, :count).by(-1)
+        expect { json_destroy params.merge(id: deck.id) }.to change(Deck, :count).by(-1)
       end
 
       specify { response.should be_success }
@@ -78,7 +78,7 @@ describe DecksController do
 
     context "with invalid data" do
       it "doesnt find the card to delete" do
-        expect { delete :destroy, params.merge(format: :json) }.to raise_exception(ActiveRecord::RecordNotFound)
+        expect { json_destroy params }.to raise_exception(ActiveRecord::RecordNotFound)
       end
 
       # rails will respond to ActiveRecord::RecordNotFound with a 404 but not in the test env
