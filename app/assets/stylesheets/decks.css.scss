@@ -1,0 +1,52 @@
+.deck {
+  position: relative;
+  width: 820px;
+
+  padding: 2px;
+
+  background-color: #bfbfbf;
+
+  padding-left: 10px;
+  padding-bottom: 20px;
+
+  margin-left: 23px;
+  margin-bottom: 7px;
+
+  a {
+    margin-right: 30px;
+  }
+  h1 {
+    margin-top: 7px;
+    font-weight: normal;
+  }
+  .details {
+    position: absolute;
+    bottom: 0;
+  }
+  .details {
+    position: absolute;
+    bottom: 0;
+  }
+  .cards {
+    float: left;
+
+    margin-right: 25px;
+  }
+  .collaborators {
+    float: left;
+  }
+  .actions {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+  &.nice {
+    background-color: #aed657;
+  }
+  &.normal {
+    background-color: #eac35c;
+  }
+  &.bad {
+    background-color: #ff9b62;
+  }
+}
