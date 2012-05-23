@@ -7,6 +7,14 @@ Zaphod.CurrentUser = Backbone.Model.extend({
     isLoggedIn: false
   },
 
+  initialize: function() {
+    // load from localStorage if customizations are requested
+    if (_.isEqual(this.defaults, this.attributes) && localStorage.currentUser) {
+      this.set(JSON.parse(localStorage.currentUser));
+    }
+  },
+
+
   url: '/current_user',
 
   // changing and then saving results in creating i.e. logging in
@@ -22,17 +30,23 @@ Zaphod.CurrentUser = Backbone.Model.extend({
     } else if (method === 'delete') {
       // restore guest account on logout
       this.set(this.defaults);
+      localStorage.removeItem('currentUser');
     }
   },
 
   parse: function(user) {
-    return {
+    var obj = {
       name: user.username,
       email: user.email,
       password: '',
       authToken: user.authentication_token,
       isLoggedIn: true
     };
+
+    // successful login
+    localStorage.currentUser = JSON.stringify(obj);
+
+    return obj;
   },
 
   isNew: function() {

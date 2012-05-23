@@ -3,7 +3,7 @@
 
 beforeEach(function() {
   // must be set by hand for each db :(
-  Zaphod.currentUser.set('authToken', 'RtpbxNDTieY1rhyNb2or');
+  Zaphod.currentUser.set('authToken', 'DBVi5cQkwyMrpdpCdxaW');
 
 
   this.addMatchers({
