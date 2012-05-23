@@ -8,14 +8,27 @@ gem 'inherited_resources'
 
 gem 'sqlite3'
 
+gem 'ejs'
+gem 'execjs'
+gem 'therubyracer'
+gem 'haml'
+
 group :development, :test do
   # Testing
   gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'shoulda-matchers'
+
+  gem 'coffee-rails' # for jasminerice
+  gem 'jasminerice'
+  gem 'sass-rails'
 end
 
 group :development do
   gem 'guard-rspec', require: false
   gem 'growl', require: false
+end
+
+group :assets do
+  gem 'handlebars_assets'
 end

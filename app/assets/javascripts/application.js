@@ -11,5 +11,14 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
-//= require jquery_ujs
-//= require_tree .
+//= require underscore
+//= require backbone
+//
+//= require handlebars
+//
+//= require zaphod
+//= require_tree ./models
+//= require_tree ./collections
+//= require_tree ../templates
+//= require_tree ./views
+//= require router

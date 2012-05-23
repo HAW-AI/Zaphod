@@ -1,0 +1,15 @@
+<h2>Learning {{deck.name}}</h2>
+<div id="front">
+  <h3>Front</h3>
+  <p>{{card.front}}</p>
+</div>
+<div id="back">
+  <h3>Back</h3>
+  <p>{{card.back}}</p>
+</div>
+<p>Card-ID: {{card.id}}</p>
+
+<a href="/decks/{{deck.id}}/learn" id="showBack">Show Back</a>
+<a href="/decks/{{deck.id}}/learn" id="showFront">Show Front Again</a>
+<a href="/decks/{{deck.id}}/learn" id="unknown">Unknown</a>
+<a href="/decks/{{deck.id}}/learn" id="known">Known</a>

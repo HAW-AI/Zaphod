@@ -1,0 +1,49 @@
+// partials first
+@import '**/[_]*.{scss,css}';
+// everything else after
+@import '**/[^_]*.{scss,css}';
+
+body {
+  background: #dedede;
+  color: #666;
+
+  font-size: 14px;
+
+  margin: 0px;
+}
+
+a {
+  color: #666;
+  text-decoration: none;
+}
+
+header {
+  height: 120px;
+
+  margin-top: 12px;
+
+  padding-top: 30px;
+  padding-left: 115px;
+
+  background: image-url('zaphod.png');
+  background-repeat: no-repeat;
+
+  h1 {
+    margin-bottom: 15px;
+
+    font-size: 45px;
+    font-weight: normal;
+  }
+  a {
+    font-size: 18px;
+
+    background: #FFF;
+
+    padding: 5px;
+    padding-bottom: 2px;
+    padding-left: 10px;
+    padding-right: 10px;
+
+    margin-right: 7px;
+  }
+}
