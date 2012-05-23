@@ -2,7 +2,8 @@
 //= require_tree .
 
 beforeEach(function() {
-  Zaphod.currentUser.set('authToken', 'ZPYxqZ9tN2Apy9ZMxTHE');
+  // must be set by hand for each db :(
+  Zaphod.currentUser.set('authToken', 'p5Wm9xCyE26eS2TK2Yod');
 
 
   this.addMatchers({
