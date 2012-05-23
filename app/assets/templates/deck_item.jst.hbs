@@ -1,7 +1,13 @@
-<a href="/decks/{{id}}">{{title}}</a><br>
-ID: {{id}}<br>
-Title: <input class="title" value="{{title}}"><br>
-Description: <textarea class="description" style="width:400px;height:100px">{{description}}</textarea><br>
-<button class="save">Save</button><br>
-<button class="destroy">Delete</button><br>
-<hr>
+<article class="deck">
+	<h1><input class="title" value="{{title}}"/></h1>
+	<p><textarea class="description">{{description}}</textarea></p>
+	<div class="details">
+		<div class="cards">n Cards</div>
+		<div class="collaborators">n Collaborators</div>
+	</div>
+	<nav class="actions">
+		<button class="save">Bearbeiten</button>
+		<button class="learn">Lernen</button>
+		<button class="destroy">Löschen</button>
+	</nav>
+</article>
