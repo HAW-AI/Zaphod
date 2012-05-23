@@ -3,7 +3,7 @@
 
 beforeEach(function() {
   // must be set by hand for each db :(
-  Zaphod.currentUser.set('authToken', 'p5Wm9xCyE26eS2TK2Yod');
+  Zaphod.currentUser.set('authToken', 'RLqTedGph74WB2dPYJHt');
 
 
   this.addMatchers({
@@ -17,6 +17,10 @@ beforeEach(function() {
 
     toIncludeSubstring: function(str) {
       return this.actual.indexOf(str) !== -1;
+    },
+
+    toBeEqualTo: function(obj) {
+      return _.isEqual(this.actual, obj);
     }
   });
 });
