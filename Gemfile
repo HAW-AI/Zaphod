@@ -11,6 +11,7 @@ gem 'sqlite3'
 gem 'ejs'
 gem 'execjs'
 gem 'therubyracer'
+gem 'haml'
 
 group :development, :test do
   # Testing
@@ -20,6 +21,7 @@ group :development, :test do
 
   gem 'coffee-rails' # for jasminerice
   gem 'jasminerice'
+  gem 'sass-rails'
 end
 
 group :development do
