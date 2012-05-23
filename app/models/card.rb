@@ -15,7 +15,7 @@ class Card < ActiveRecord::Base
       scores = scores_for(user, deck)
     end
 
-    scores.take(5).shuffle.first.card unless scores.empty?
+    scores.order("score ASC").take(5).shuffle.first.card unless scores.empty?
   end
 
 
