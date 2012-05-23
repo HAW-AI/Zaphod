@@ -9,7 +9,7 @@ var Zaphod = {
 
   apiUrl: function(url) {
     // add .json and auth_token
-    return url + '.json?auth_token=' + Zaphod.currentUser.authToken;
+    return url + '.json?auth_token=' + Zaphod.currentUser.get('authToken');
   }
 };
 
@@ -28,6 +28,15 @@ Backbone.sync = function(method, model, options) {
 (function($) {
   $(document).ready(function() {
     Zaphod.router = new Zaphod.Router();
+
+    Zaphod.currentUser = new Zaphod.CurrentUser();
+    new Zaphod.CurrentUserView({ model: Zaphod.currentUser, el: $('#current_user') }).render();
+
+    // re-trigger current route to make use of new privileges
+    Zaphod.currentUser.bind('change', function() {
+      Zaphod.router.navigate(Backbone.history.fragment, { trigger: true, replace: true });
+    });
+
     Backbone.history.start({ pushState: true });
   });
 })(jQuery);
