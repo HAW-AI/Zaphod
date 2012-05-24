@@ -40,6 +40,13 @@ Backbone.sync = function(method, model, options) {
       Zaphod.router.navigate(frag, { trigger: true, replace: true });
     });
 
+    // prevent links from making a big request
+    $(document).on('click', 'a', function (ev) {
+      var href = $(this).attr('href');
+      ev.preventDefault();
+      Zaphod.router.navigate(href, true);
+    });
+
     Backbone.history.start({ pushState: true });
   });
 })(jQuery);
