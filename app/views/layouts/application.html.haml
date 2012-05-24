@@ -6,10 +6,11 @@
     = javascript_include_tag "application"
     = csrf_meta_tags
   %body
-    %header
-      %h1 Zaphod
-      %nav
-        %a#decks_link{href: '/decks'} Sammlungen
-        = link_to "Abmelden", {}, class: :logout#, destroy_user_session_path
-    #current_user
-    #content
+    #page
+      %header
+        %h1 Zaphod
+        %nav
+          %a#decks_link{href: '/decks'} Sammlungen
+          = link_to "Abmelden", {}, class: :logout#, destroy_user_session_path
+      #current_user
+      #content
