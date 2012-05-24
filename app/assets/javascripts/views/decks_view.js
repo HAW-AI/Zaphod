@@ -11,7 +11,7 @@ Zaphod.DecksView = Backbone.View.extend({
     // render to be able to add
     this.render();
 
-    this.collection.bind('reset', this.reset);
+    this.collection.bind('reset destroy', this.reset);
     this.collection.bind('add', this.add);
   },
 
