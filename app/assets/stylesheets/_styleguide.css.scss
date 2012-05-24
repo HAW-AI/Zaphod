@@ -21,7 +21,8 @@ button {
   background-color: #578ad6;
   border: 1px solid #578ad6;
 
-  padding: 7px;
+  padding: 7px 12px;
+  margin-top: 10px;
   font-weight: bold;
   color: #fff;
 
@@ -38,6 +39,11 @@ button {
     position: relative;
     top: 1px;
   }
+}
+
+input {
+  font-size: 110%;
+  text-indent: 10px;
 }
 
 $background-color: #dedede;
