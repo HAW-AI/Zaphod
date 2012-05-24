@@ -24,6 +24,9 @@ Zaphod.LearnView = Backbone.View.extend({
     this.card = new Zaphod.Card({ deckId: this.deck.deckId })
     this.card.bind('change', this.render);
 
+    // render in case there are no cards
+    this.render();
+
     this.next();
   },
 

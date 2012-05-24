@@ -1,4 +1,5 @@
 <h2>Learning {{deck.name}}</h2>
+{{#if card.id}}
 <div id="front">
   <h3>Front</h3>
   <p>{{card.front}}</p>
@@ -13,3 +14,6 @@
 <a href="/decks/{{deck.id}}/learn" id="showFront">Show Front Again</a>
 <a href="/decks/{{deck.id}}/learn" id="unknown">Unknown</a>
 <a href="/decks/{{deck.id}}/learn" id="known">Known</a>
+{{else}}
+Nothing to learn...
+{{/if}}
