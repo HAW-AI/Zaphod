@@ -44,6 +44,11 @@ button {
 input {
   font-size: 110%;
   text-indent: 10px;
+  min-width: 260px;
+}
+label {
+  color: #424242;
+  margin-top: 10px;
 }
 
 $background-color: #dedede;
