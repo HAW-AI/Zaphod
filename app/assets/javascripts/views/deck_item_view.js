@@ -4,7 +4,8 @@ Zaphod.DeckItemView = Backbone.View.extend({
   events: {
     'click .save':    'save',
     'click .destroy': 'destroy',
-    'click .learn':   'learn'
+    'click .learn':   'learn',
+    'click .show_cards': 'showCards'
   },
 
   initialize: function() {
@@ -31,5 +32,9 @@ Zaphod.DeckItemView = Backbone.View.extend({
 
   learn: function() {
     Zaphod.router.navigate(this.model.url() + '/learn', true);
+  },
+
+  showCards: function() {
+    Zaphod.router.navigate(this.model.url(), true);
   }
 });
