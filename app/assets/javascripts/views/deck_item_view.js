@@ -3,11 +3,12 @@ Zaphod.DeckItemView = Backbone.View.extend({
 
   events: {
     'click .save':    'save',
-    'click .destroy': 'destroy'
+    'click .destroy': 'destroy',
+    'click .learn':   'learn'
   },
 
   initialize: function() {
-    _.bindAll(this, 'render', 'save', 'destroy');
+    _.bindAll(this, 'render', 'save', 'destroy', 'learn');
     this.model.bind('change', this.render);
     this.render();
   },
@@ -26,5 +27,9 @@ Zaphod.DeckItemView = Backbone.View.extend({
 
   destroy: function() {
     this.model.destroy();
+  },
+
+  learn: function() {
+    Zaphod.router.navigate(this.model.url() + '/learn', true);
   }
 });
