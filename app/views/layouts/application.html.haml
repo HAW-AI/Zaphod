@@ -6,10 +6,11 @@
     = javascript_include_tag "application"
     = csrf_meta_tags
   %body
-    %header
-      %h1 Zaphod
-      %nav
-        = link_to "Sammlungen"#, user_decks_path(current_user)
-        = link_to "Abmelden"#, destroy_user_session_path
-    #current_user
-    #content
+    #page
+      %header
+        %h1 Zaphod
+        %nav
+          = link_to "Sammlungen"#, user_decks_path(current_user)
+          = link_to "Abmelden", {}, class: :logout
+      #current_user
+      #content
