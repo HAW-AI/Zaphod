@@ -1,19 +1,20 @@
 <h2>Learning {{deck.title}}</h2>
 {{#if card.id}}
 <div id="front">
-  <h3>Front</h3>
-  <p>{{card.front}}</p>
+	<p>Question:</p>
+  <h1 class="question">{{card.front}}</h1>
 </div>
 <div id="back">
-  <h3>Back</h3>
-  <p>{{card.back}}</p>
+	<p>Answer:</p>
+  <p class="answer">{{card.back}}</p>
 </div>
-<p>Card-ID: {{card.id}}</p>
 
-<a href="/decks/{{deck.id}}/learn" id="showBack">Show Back</a>
-<a href="/decks/{{deck.id}}/learn" id="showFront">Show Front Again</a>
-<a href="/decks/{{deck.id}}/learn" id="unknown">Unknown</a>
-<a href="/decks/{{deck.id}}/learn" id="known">Known</a>
+<div class="actions">
+	<a href="/decks/{{deck.id}}/learn" id="showBack">Show Back</a>
+	<a href="/decks/{{deck.id}}/learn" id="showFront">Show Front Again</a>
+	<a href="/decks/{{deck.id}}/learn" id="unknown">Unknown</a>
+	<a href="/decks/{{deck.id}}/learn" id="known">Known</a>
+</div>
 {{else}}
 Nothing to learn...
 {{/if}}
