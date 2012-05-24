@@ -1,6 +1,6 @@
 Zaphod.Router = Backbone.Router.extend({
   routes: {
-    '': 'decks',
+    '': 'nothing',
     'decks': 'decks',
     'decks/:id': 'deck',
     'decks/:id/cards': 'cards',
@@ -8,7 +8,12 @@ Zaphod.Router = Backbone.Router.extend({
     'cards/:id': 'card'
   },
 
+  nothing: function() {
+    $('#content').html('');
+  },
+
   card: function(id) {
+    if (!Zaphod.currentUser.get('isLoggedIn')) { Zaphod.router.navigate('', true); return; }
     id = id || 1;
     var model = new Zaphod.Card({ id: id });
     model.fetch();
@@ -16,24 +21,28 @@ Zaphod.Router = Backbone.Router.extend({
   },
 
   cards: function(deckId) {
+    if (!Zaphod.currentUser.get('isLoggedIn')) { Zaphod.router.navigate('', true); return; }
     var collection = new Zaphod.Cards({ deckId: deckId });
     var view = new Zaphod.CardsView({ collection: collection, el: $('#content') });
     collection.fetch();
   },
 
   decks: function() {
+    if (!Zaphod.currentUser.get('isLoggedIn')) { Zaphod.router.navigate('', true); return; }
     var collection = new Zaphod.Decks();
     var view = new Zaphod.DecksView({ collection: collection, el: $('#content') });
     collection.fetch();
   },
 
   deck: function(id) {
+    if (!Zaphod.currentUser.get('isLoggedIn')) { Zaphod.router.navigate('', true); return; }
     var model = new Zaphod.Deck({ id: id });
     var view = new Zaphod.DeckView({ model: model, el: $('#content') });
     model.fetch();
   },
 
   learn: function(deckId) {
+    if (!Zaphod.currentUser.get('isLoggedIn')) { Zaphod.router.navigate('', true); return; }
     var deck = new Zaphod.Deck({ id: deckId });
     deck.fetch({
       success: function() {

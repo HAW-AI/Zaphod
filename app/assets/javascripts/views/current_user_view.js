@@ -26,5 +26,6 @@ Zaphod.CurrentUserView = Backbone.View.extend({
 
   logout: function() {
     this.model.destroy();
+    Zaphod.router.navigate('', true);
   }
 });
