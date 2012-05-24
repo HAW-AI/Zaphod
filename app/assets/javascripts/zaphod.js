@@ -22,6 +22,10 @@ Backbone.sync = function(method, model, options) {
     options.url = Zaphod.apiUrl(url);
   }
 
+  // dont cache until issue is resolved where data is shown even though the user
+  // is signed out
+  options.cache = false;
+
   return backboneSync(method, model, options);
 };
 

@@ -25,7 +25,6 @@ Zaphod.CurrentUserView = Backbone.View.extend({
   },
 
   logout: function() {
-    console.log('bam')
     this.model.destroy();
   }
 });
