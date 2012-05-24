@@ -1,4 +1,14 @@
 body {
 	font: normal normal normal 1em/1.5em "Myriad Pro",Arial, sans-serif;
 }
+label {
+	display: block;
+}
+
+button {
+	background-color: #aed657;
+	border: 1px solid #aed657;
+	padding: 7px;
+}
+
 $background-color: #dedede;

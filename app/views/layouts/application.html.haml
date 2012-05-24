@@ -10,6 +10,6 @@
       %h1 Zaphod
       %nav
         %a#decks_link{href: '/decks'} Sammlungen
-        = link_to "Abmelden"#, destroy_user_session_path
+        = link_to "Abmelden", {}, class: :logout#, destroy_user_session_path
     #current_user
     #content
