@@ -1,21 +1,23 @@
 //= require application
 //= require_tree .
 
-// fetch correct auth token
-var tok = '';
-$.ajax('/current_user.json', {
-  async: false,
-  dataType: 'json',
-  type: 'post',
-  data: {
-    email: 'zaphod.1@example.com',
-    password: 'bobby tables'
-  },
-  success: function(d) { tok = d.authentication_token; }
-});
-Zaphod.currentUser.set('authToken', tok);
 
 beforeEach(function() {
+  // fetch correct auth token
+  var tok = '';
+  $.ajax('/current_user.json', {
+    async: false,
+    dataType: 'json',
+    type: 'post',
+    data: {
+      email: 'zaphod.1@example.com',
+      password: 'bobby tables'
+    },
+    success: function(d) { tok = d.authentication_token; }
+  });
+  Zaphod.currentUser.set('authToken', tok);
+
+
   this.addMatchers({
     toBeValid: function() {
       return this.actual.isValid();
