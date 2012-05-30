@@ -21,7 +21,8 @@ Zaphod.CardView = Backbone.View.extend({
     console.error({ className: 'Zaphod.CardView', model: model, error: error });
   },
 
-  save: function() {
+  save: function(e) {
+		if (e) e.stopImmediatePropagation();
     console.log('save');
 
     this.model.save({
@@ -30,7 +31,8 @@ Zaphod.CardView = Backbone.View.extend({
     });
   },
 
-  destroy: function() {
+  destroy: function(e) {
+		if (e) e.stopImmediatePropagation();
     this.model.destroy();
   }
 });
