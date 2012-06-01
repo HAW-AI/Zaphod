@@ -16,6 +16,8 @@
 //
 //= require handlebars
 //
+//= require jquery_extensions
+//
 //= require zaphod
 //= require_tree ./models
 //= require_tree ./collections
