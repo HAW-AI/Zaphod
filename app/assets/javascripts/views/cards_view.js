@@ -32,7 +32,8 @@ Zaphod.CardsView = Backbone.View.extend({
     return this;
   },
 
-  createCard: function() {
+  createCard: function(e) {
+		if (e) e.stopImmediatePropagation();
     this.collection.create({ deckId: this.collection.deckId() });
   }
 });

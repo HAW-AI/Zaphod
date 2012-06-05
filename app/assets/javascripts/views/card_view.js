@@ -7,13 +7,14 @@ Zaphod.CardView = Backbone.View.extend({
   },
 
   initialize: function() {
-    _.bindAll(this, 'render');
+    _.bindAll(this, 'render', 'save', 'destroy');
     this.model.bind('change', this.render);
     this.model.bind('error', this.error)
   },
 
   render: function() {
     this.$el.html(this.template(this.model.toJSON()));
+    this.$('.front, .back').doneTyping(this.save);
     return this;
   },
 
@@ -21,7 +22,8 @@ Zaphod.CardView = Backbone.View.extend({
     console.error({ className: 'Zaphod.CardView', model: model, error: error });
   },
 
-  save: function() {
+  save: function(e) {
+		if (e) e.stopImmediatePropagation();
     console.log('save');
 
     this.model.save({
@@ -30,7 +32,8 @@ Zaphod.CardView = Backbone.View.extend({
     });
   },
 
-  destroy: function() {
+  destroy: function(e) {
+		if (e) e.stopImmediatePropagation();
     this.model.destroy();
   }
 });

@@ -3,11 +3,13 @@ Zaphod.LearnView = Backbone.View.extend({
 
   events: {
     'click #showBack': function(e) {
+			e.stopImmediatePropagation();
       e.preventDefault();
       this.$('#front, #showBack').hide();
       this.$('#back, #showFront, #known, #unknown').show();
     },
     'click #showFront': function(e) {
+			e.stopImmediatePropagation();
       e.preventDefault();
       this.$('#back, #showFront').hide();
       this.$('#front, #showBack').show();
@@ -49,10 +51,12 @@ Zaphod.LearnView = Backbone.View.extend({
   },
 
   known: function(e) {
+		if (e) e.stopImmediatePropagation();
     this.learned(e, true);
   },
 
   unknown: function(e) {
+		if (e) e.stopImmediatePropagation();
     this.learned(e, false);
   },
 

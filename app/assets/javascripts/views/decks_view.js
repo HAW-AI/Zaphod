@@ -30,7 +30,8 @@ Zaphod.DecksView = Backbone.View.extend({
     this.$('#decks').append(new Zaphod.DeckItemView({ model: deck }).render().el);
   },
 
-  createDeck: function() {
+  createDeck: function(e) {
+		if (e) e.stopImmediatePropagation();
     this.collection.create();
   }
 });
