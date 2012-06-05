@@ -8,6 +8,8 @@ gem 'inherited_resources'
 
 gem 'sqlite3'
 
+gem 'thin'
+
 gem 'ejs'
 gem 'execjs'
 gem 'therubyracer'
