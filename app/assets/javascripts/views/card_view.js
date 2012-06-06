@@ -2,7 +2,6 @@ Zaphod.CardView = Backbone.View.extend({
   template: JST['card'],
 
   events: {
-    'click .save':    'save',
     'click .destroy': 'destroy'
   },
 
