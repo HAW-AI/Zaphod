@@ -13,7 +13,9 @@ Zaphod.CardView = Backbone.View.extend({
   },
 
   render: function() {
-    this.$el.html(this.template(this.model.toJSON()));
+    this.$el.retainUserState(_.bind(function() {
+      this.$el.html(this.template(this.model.toJSON()));
+    }, this));
     this.$('.front, .back').doneTyping(this.save);
     return this;
   },
@@ -23,7 +25,7 @@ Zaphod.CardView = Backbone.View.extend({
   },
 
   save: function(e) {
-		if (e) e.stopImmediatePropagation();
+    if (e) e.stopImmediatePropagation();
     console.log('save');
 
     this.model.save({
