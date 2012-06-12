@@ -2,22 +2,18 @@ Zaphod.CardView = Backbone.View.extend({
   template: JST['card'],
 
   events: {
+    'click .save':    'save',
     'click .destroy': 'destroy'
   },
 
   initialize: function() {
     _.bindAll(this, 'render', 'save', 'destroy');
+    this.model.bind('change', this.render);
     this.model.bind('error', this.error)
   },
 
   render: function() {
     this.$el.html(this.template(this.model.toJSON()));
-
-    this.$('.front, .back').keydown(_.bind(function() {
-      this.$el.removeClass('saved');
-      this.$('.status').text('Not Saved');
-    }, this));
-
     this.$('.front, .back').doneTyping(this.save);
     return this;
   },
@@ -32,10 +28,6 @@ Zaphod.CardView = Backbone.View.extend({
     this.model.save({
       front: this.$('.front').val(),
       back:  this.$('.back').val()
-    }, {
-      success: _.bind(function() {
-        this.$el.addClass('saved')
-      }, this)
     });
   },
 
