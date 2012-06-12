@@ -10,6 +10,8 @@ class CollaboratorsController < ApplicationController
       elsif params[:role] == "editor"
         @collaborators = @deck.editors
       end
+    else
+      @collaborators = @deck.collaborators
     end
 
     respond_with @collaborators

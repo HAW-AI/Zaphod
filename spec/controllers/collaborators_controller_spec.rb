@@ -20,6 +20,11 @@ describe CollaboratorsController do
 
         specify { response.should be_success }
         specify { JSON.parse(response.body).should_not be_empty }
+
+        specify "without a specified role it returns all collaborators" do
+          json_get_index params.merge(deck_id: deck.id)
+          JSON.parse(response.body).should_not be_empty
+        end
       end
 
       context "should be able to get the deck's list of viewers" do
