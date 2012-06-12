@@ -9,7 +9,7 @@ Zaphod.Router = Backbone.Router.extend({
   },
 
   nothing: function() {
-    $('#content').html('');
+    // what to do next?
   },
 
   card: function(id) {
