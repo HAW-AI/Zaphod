@@ -40,6 +40,13 @@ class Deck < ActiveRecord::Base
     end
   end
 
+  def as_json(opts={})
+    collabs = collaborators.map do |collab|
+      collab.as_json.merge({ username: User.find(collab.user_id).username })
+    end
+    super.merge({ collaborators: collabs })
+  end
+
   private
 
   def add_user(user_id, role)

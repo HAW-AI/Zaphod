@@ -10,4 +10,14 @@ describe('Deck', function() {
       expect(new Zaphod.Deck({ id: 1 })).toBeValid();
     });
   });
+
+  describe('collaborators', function() {
+    it('should have at least an owner', function() {
+      var deck = new Zaphod.Deck({ id: 1 });
+      deck.fetch({ async: false });
+      var collabs = deck.collaborators();
+      expect(collabs).not.toBeEmpty();
+      expect(_.find(collabs, function(c) { return c.role === 'owner' })).not.toBeUndefined();
+    });
+  });
 });

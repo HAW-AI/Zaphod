@@ -44,4 +44,24 @@ describe Deck do
 
   end
 
+
+  describe :as_json do
+    let(:deck) { FactoryGirl.create(:deck) }
+    let(:editor) { FactoryGirl.create(:editor) }
+
+    before do
+      deck.add_editor(editor.id)
+      deck.reload
+    end
+
+    after do
+      deck.remove_editor(editor.id)
+    end
+
+    it "includes the collaborators" do
+      deck.as_json[:collaborators].should_not be_empty
+    end
+  end
+
+
 end

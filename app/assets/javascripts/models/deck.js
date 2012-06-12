@@ -1,7 +1,8 @@
 Zaphod.Deck = Backbone.Model.extend({
   defaults: {
     title: 'Deck Title',
-    description: ''
+    description: '',
+    collaborators: []
   },
 
   urlRoot: '/decks',
@@ -11,5 +12,17 @@ Zaphod.Deck = Backbone.Model.extend({
     if (title === undefined || (_.isString(title) && _.isEmpty(title))) {
       return { title: ['must not be empty'] };
     }
+  },
+
+  parse: function(json) {
+    var data = _.clone(json);
+    data.collaborators = _.map(data.collaborators, function(collab) {
+      return { name: collab.username, role: collab.role };
+    });
+    return data;
+  },
+
+  collaborators: function() {
+    return this.get('collaborators');
   }
 });

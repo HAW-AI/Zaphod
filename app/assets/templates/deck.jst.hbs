@@ -1,5 +1,11 @@
 <h2>{{title}}</h2>
 <p>{{description}}</p>
+<h3>Collaborators</h3>
+<ul>
+  {{#collaborators}}
+  <li>{{name}} ({{role}})</li>
+  {{/collaborators}}
+</ul>
 <div class="cards"></div>
 <div class="actions">
 <a href="/decks/{{id}}/learn">Learn</a>
