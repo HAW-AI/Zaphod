@@ -24,12 +24,7 @@ Zaphod::Application.routes.draw do
         get 'next'
       end
     end
-    resources :collaborators, only: [:index] do
-      collection do
-        put :update
-        delete :destroy
-      end
-    end
+    resources :collaborators
   end
 
   resource :current_users, path: "current_user", as: "current_user"

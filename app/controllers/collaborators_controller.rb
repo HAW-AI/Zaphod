@@ -1,5 +1,8 @@
-class CollaboratorsController < ApplicationController
+class CollaboratorsController < ResourceController
   respond_to :json
+
+	belongs_to :deck, shallow: true
+	actions :create, :update, :show, :destroy
 
   def index
     @deck = Deck.find(params[:deck_id])
