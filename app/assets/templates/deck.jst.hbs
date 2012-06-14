@@ -1,5 +1,6 @@
 <h2>{{title}}</h2>
 <p>{{description}}</p>
+
 {{#if canChangeCollaborators}}
 <h3>Collaborators</h3>
 <ul>
@@ -7,7 +8,21 @@
   <li>{{name}} ({{role}})</li>
   {{/collaborators}}
 </ul>
+
+<div class="collab_form">
+  <select class="collab_name">
+    <option>User</option>
+  </select>
+  <select class="collab_role">
+    <option>Role</option>
+    <option value="owner">Owner</option>
+    <option value="editor">Editor</option>
+    <option value="viewer">Viewer</option>
+  </select>
+  <button class="add_collab">Add Collaborator</button>
+</div>
 {{/if}}
+
 <div class="cards"></div>
 <div class="actions">
 <a href="/decks/{{id}}/learn">Learn</a>
