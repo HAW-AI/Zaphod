@@ -15,4 +15,10 @@ describe Collaborator do
 
     should_not allow_value("foo").for(:role)
   end
+
+  # factory doesn't work properly
+  #context "with existing collaborators" do
+  #  before { FactoryGirl.create(:collaborator) }
+  #  it { should validate_uniqueness_of :user_id }
+  #end
 end
