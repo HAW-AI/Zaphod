@@ -19,7 +19,7 @@ class CardsController < ResourceController
     # update score
 		@card = Card.find(params[:id])
     score = Score.for(current_user, @card)
-    if [:known, :unkown].include? params[:event]
+    if params[:event] && [:known, :unknown].include?(params[:event].to_sym)
       score.send(params[:event])
     end
 
