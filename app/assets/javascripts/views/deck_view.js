@@ -14,7 +14,13 @@ Zaphod.DeckView = Backbone.View.extend({
   },
 
   render: function() {
-    this.$el.html(this.template(this.model.toJSON()));
+    var data = this.model.toJSON();
+    data.canChangeCollaborators = _.find(this.model.get('collaborators'), function(collab) {
+      return collab.name === Zaphod.currentUser.get('name') &&
+        collab.role === 'owner';
+    });
+
+    this.$el.html(this.template(data));
     new Zaphod.CardsView({ collection: this.cards, el: this.$('.cards')[0] });
     return this;
   }
