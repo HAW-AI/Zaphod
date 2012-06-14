@@ -8,7 +8,6 @@ Zaphod.DeckView = Backbone.View.extend({
 
     this.cards = new Zaphod.Cards({ deckId: this.model.get('id') });
     this.cards.fetch();
-    this.cardsView = 
 
     this.render();
   },
