@@ -22,7 +22,8 @@ class Deck < ActiveRecord::Base
   end
 
   def remove_editor(user_id)
-    collaborators.where(user_id: user_id, role: "editor").first.destroy
+    editor = collaborators.where(user_id: user_id, role: "editor").first
+    editor.destroy if editor
   end
 
   # Returns: Deck -> User
