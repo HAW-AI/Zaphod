@@ -1,22 +1,22 @@
 <h3>Collaborators</h3>
 <ul>
-  {{#each this}}
-  <li>{{name}} ({{role}})</li>
-  {{/each}}
+  {{#collaborators}}
+  <li>{{user.name}} ({{role}})</li>
+  {{/collaborators}}
 </ul>
 
-<div class="collab_form">
-  <select class="collab_name">
+<div>
+  <select class="user">
     <option>User</option>
     {{#users}}
     <option value="{{id}}">{{name}}</option>
     {{/users}}
   </select>
-  <select class="collab_role">
+  <select class="role">
     <option>Role</option>
     <option value="owner">Owner</option>
     <option value="editor">Editor</option>
     <option value="viewer">Viewer</option>
   </select>
-  <button class="add_collab">Add Collaborator</button>
+  <button class="add">Add Collaborator</button>
 </div>

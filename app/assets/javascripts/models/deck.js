@@ -17,7 +17,12 @@ Zaphod.Deck = Backbone.Model.extend({
   parse: function(json) {
     var data = _.clone(json);
     data.collaborators = _.map(data.collaborators, function(collab) {
-      return { name: collab.username, role: collab.role };
+      return {
+        name: collab.username,
+        role: collab.role,
+        id: collab.id,
+        userId: collab.user_id
+      };
     });
     return data;
   },

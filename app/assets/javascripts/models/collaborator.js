@@ -1,7 +1,8 @@
 Zaphod.Collaborator = Backbone.Model.extend({
   defaults: {
     user: null,
-    role: ""
+    role: "",
+    deckId: 0
   },
 
   validate: function(attrs) {
@@ -16,6 +17,30 @@ Zaphod.Collaborator = Backbone.Model.extend({
       errors.role = [ 'must be one of ' + validRoles.join(', ') ];
     }
 
+    if (!attrs.deckId) {
+      errors.deckId = [ 'must be included' ];
+    }
+
     return _.isEmpty(errors) ? undefined : errors;
+  },
+
+  urlRoot: function() {
+    if (this.isNew()) {
+      return '/decks/' + this.get('deckId') + '/collaborators';
+    } else {
+      return '/collaborators';
+    }
+  },
+
+  sync: function(method, model, options) {
+    if (this.isValid()) {
+      this.set({
+        deck_id: this.get('deckId'),
+        user_id: this.get('user').get('id'),
+        role: this.get('role')
+      });
+    }
+
+    return Backbone.sync(method, model, options);
   }
 });
