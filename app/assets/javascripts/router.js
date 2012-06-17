@@ -10,7 +10,7 @@ Zaphod.Router = Backbone.Router.extend({
   },
 
   nothing: function() {
-    // what to do next?
+    var view = new Zaphod.IndexView({ el: $('#content') })
   },
 
   signup: function() {
