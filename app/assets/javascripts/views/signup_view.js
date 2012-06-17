@@ -8,6 +8,7 @@ Zaphod.SignupView = Backbone.View.extend({
   initialize: function() {
     _.bindAll(this, 'render', 'signup');
     this.model.bind('change destroy', this.render);
+    this.render();
   },
 
   render: function() {
