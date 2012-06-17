@@ -22,7 +22,17 @@ Zaphod.SignupView = Backbone.View.extend({
       name: this.$('[name=email]').val().split("@")[0],
       email: this.$('[name=email]').val(),
       password: this.$('[name=password]').val()
-    });
-    Zaphod.router.navigate('', true);
+    },
+    {
+      success: function() {
+        Zaphod.router.navigate('', true);
+      },
+      error: function() {
+        alert('Sie konnten leider nicht angemeldet werden.');
+      }
+    }
+
+    );
+
   }
 });
