@@ -2,7 +2,7 @@ Zaphod.SignupView = Backbone.View.extend({
   template: JST['signup'],
 
   events: {
-    'click .signup': 'signup',
+    'click .signup': 'signup'
   },
 
   initialize: function() {
