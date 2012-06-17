@@ -8,6 +8,7 @@ Zaphod.SignupView = Backbone.View.extend({
   initialize: function() {
     _.bindAll(this, 'render', 'signup');
     this.model.bind('change destroy', this.render);
+    $('#current_user').html("");
     this.render();
   },
 
@@ -19,12 +20,13 @@ Zaphod.SignupView = Backbone.View.extend({
 
   signup: function() {
     this.model.save({
-      name: this.$('[name=email]').val().split("@")[0],
+      username: this.$('[name=email]').val().split("@")[0],
       email: this.$('[name=email]').val(),
       password: this.$('[name=password]').val()
     },{
       success: function() {
         Zaphod.router.navigate('', true);
+        Zaphod.currentUserView.render();
       },
       error: function() {
         alert('Sie konnten leider nicht angemeldet werden.');
