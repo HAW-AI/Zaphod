@@ -10,9 +10,9 @@ Zaphod.CollaboratorsView = Backbone.View.extend({
       throw new Error('missing option "users"');
     }
 
-    this.users = options.users;
-
     _.bindAll(this, 'render', 'createCollaborator', 'reset', 'add');
+
+    this._allUsers = options.users;
 
     // render to be able to add
     this.reset();
@@ -27,12 +27,19 @@ Zaphod.CollaboratorsView = Backbone.View.extend({
   },
 
   reset: function() {
+    // users which are not collabs
+    var that = this;
+    this.users = new Zaphod.Users(this._allUsers.filter(function(user) {
+      return !that.collection.find(function(collab) {
+        return collab.get('user').get('id') === user.get('id');
+      });
+    }));
+
     this.render();
     this.collection.each(this.add)
   },
 
   add: function(collab) {
-    console.log(collab.toJSON());
     this.$('#collaborators_list').append(new Zaphod.CollaboratorItemView({ model: collab }).render().el);
   },
 
@@ -49,13 +56,7 @@ Zaphod.CollaboratorsView = Backbone.View.extend({
     };
 
     if (opts.user_id !== 'User' && opts.role !== 'Role') {
-      var isAlreadyCollab = this.collection.find(function(c) {
-        return c.get('user').get('id') === opts.user.get('id')
-      });
-
-      if (!isAlreadyCollab) {
-        this.collection.create(opts);
-      }
+      this.collection.create(opts);
     }
   }
 });
