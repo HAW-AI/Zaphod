@@ -17,4 +17,8 @@ class User < ActiveRecord::Base
     self.authentication_token = Sorcery::Model::TemporaryToken.generate_random_token
     self.save
   end
+
+  def as_json(opts={})
+    { id: id, username: username, email: email }
+  end
 end
