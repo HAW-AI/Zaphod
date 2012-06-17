@@ -49,7 +49,7 @@ Zaphod.CollaboratorsView = Backbone.View.extend({
     var opts = {
       user: new Zaphod.User({
         id: parseInt(this.$('.user').val(), 10),
-        name: this.$('.user option:selected').text()
+        username: this.$('.user option:selected').text()
       }),
       role: this.$('.role').val(),
       deckId: this.collection.deckId()

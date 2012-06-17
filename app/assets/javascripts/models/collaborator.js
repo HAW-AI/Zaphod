@@ -8,7 +8,7 @@ Zaphod.Collaborator = Backbone.Model.extend({
   validate: function(attrs) {
     var errors = {};
 
-    if (!_.has(attrs, 'user') || !attrs.user || !attrs.user.isValid()) {
+    if (!_.has(attrs, 'user') || !attrs.user) {
       errors.user = [ 'must be valid' ];
     }
 

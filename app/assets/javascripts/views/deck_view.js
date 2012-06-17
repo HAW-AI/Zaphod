@@ -30,7 +30,7 @@ Zaphod.DeckView = Backbone.View.extend({
       data.users = this.users.toJSON();
       var collabs = _.map(this.model.get('collaborators'), function(c) {
         return new Zaphod.Collaborator({
-          user: new Zaphod.User({ name: c.name, id: c.userId }),
+          user: new Zaphod.User({ username: c.name, id: c.userId }),
           role: c.role,
           id: c.id
         });
