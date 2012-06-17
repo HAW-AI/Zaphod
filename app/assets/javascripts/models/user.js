@@ -1,6 +1,6 @@
 Zaphod.User = Backbone.Model.extend({
   defaults: {
-    name: '',
+    username: '',
     email: '',
     password: ''
   },
@@ -8,6 +8,6 @@ Zaphod.User = Backbone.Model.extend({
   urlRoot: '/users',
 
   parse: function(json) {
-    return { id: json.id, name: json.username, email: json.email };
+    return { id: json.id, username: json.username, email: json.email };
   }
 });
