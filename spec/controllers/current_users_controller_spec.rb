@@ -41,7 +41,6 @@ describe CurrentUsersController do
 
       specify "the return hash should be a superset of the user hash" do
         body_hash = ActiveSupport::JSON.decode(response.body)
-        puts body_hash.inspect
         user.as_json.each do |k, v|
           body_hash[k.to_s].should == v
         end
