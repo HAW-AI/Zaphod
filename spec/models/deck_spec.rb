@@ -41,7 +41,27 @@ describe Deck do
       deck.remove_editor(editor.id)
       deck.editors.should be_empty
     end
+  end
 
+  context "owner should be part of the deck's users" do
+    it do
+      deck = FactoryGirl.create(:deck)
+      deck.users.size.should == 1
+      deck.users.first.should == deck.owner
+    end
+  end
+
+  context "editors should be part of the deck's users" do
+    it do
+      deck = FactoryGirl.create(:deck)
+      editor1 = FactoryGirl.create(:editor)
+      editor2 = FactoryGirl.create(:editor)
+      deck.add_editor(editor1.id)
+      deck.add_editor(editor2.id)
+
+      deck.users.size.should == 3
+      deck.users.should include(editor1, editor2)
+    end
   end
 
 

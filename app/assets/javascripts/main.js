@@ -1,9 +1,11 @@
 (function($) {
 	Zaphod.router = new Zaphod.Router();
 	Zaphod.currentUser = new Zaphod.CurrentUser();
+  Zaphod.currentUserView = null;
 
   $(document).ready(function() {
-    new Zaphod.CurrentUserView({ model: Zaphod.currentUser, el: $('#current_user') }).render();
+    Zaphod.currentUserView = new Zaphod.CurrentUserView({ model: Zaphod.currentUser, el: $('#current_user') });
+    Zaphod.currentUserView.render();
 
     // re-trigger current route to make use of new privileges
     //Zaphod.currentUser.bind('change', function() {
