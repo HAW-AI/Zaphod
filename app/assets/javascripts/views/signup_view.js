@@ -19,6 +19,7 @@ Zaphod.SignupView = Backbone.View.extend({
 
   signup: function() {
     this.model.save({
+      name: this.$('[name=email]').val().split("@")[0],
       email: this.$('[name=email]').val(),
       password: this.$('[name=password]').val()
     });
