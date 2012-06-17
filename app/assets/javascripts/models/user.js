@@ -1,5 +1,6 @@
 Zaphod.User = Backbone.Model.extend({
   defaults: {
+    name: '',
     email: '',
     password: ''
   },
