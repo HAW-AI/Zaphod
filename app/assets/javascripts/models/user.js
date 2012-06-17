@@ -1,13 +1,11 @@
 Zaphod.User = Backbone.Model.extend({
   defaults: {
-    name: ""
+    name: '',
+    email: '',
+    password: ''
   },
 
-  validate: function(attrs) {
-    if (!this.get('name') || _.isEmpty(this.get('name'))) {
-      return { name: ['is empty'] };
-    }
-  },
+  url: '/users',
 
   parse: function(json) {
     return { id: json.id, name: json.username, email: json.email };

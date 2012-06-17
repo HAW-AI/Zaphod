@@ -5,11 +5,17 @@ Zaphod.Router = Backbone.Router.extend({
     'decks/:id': 'deck',
     'decks/:id/cards': 'cards',
     'decks/:id/learn': 'learn',
-    'cards/:id': 'card'
+    'cards/:id': 'card',
+    'signup': 'signup'
   },
 
   nothing: function() {
-    // what to do next?
+    var view = new Zaphod.IndexView({ el: $('#content') })
+  },
+
+  signup: function() {
+    var model = new Zaphod.User();
+    var view = new Zaphod.SignupView({ model: model, el: $('#content') });
   },
 
   card: function(id) {
