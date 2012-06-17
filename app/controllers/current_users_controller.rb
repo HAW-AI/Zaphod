@@ -12,7 +12,8 @@ class CurrentUsersController < ResourceController
     @user = User.authenticate(params[:email], params[:password])
     respond_to do |format|
       if @user
-        format.json { render json: @user }
+        data = @user.as_json.merge({ authentication_token: @user.authentication_token })
+        format.json { render json: data }
       else
         format.json { render json: nil, status: :unprocessable_entity }
       end
