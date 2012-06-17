@@ -12,22 +12,28 @@ Zaphod.CollaboratorsView = Backbone.View.extend({
 
     this.users = options.users;
 
-    _.bindAll(this, 'render', 'createCollaborator');
-    this.collection.bind('change', this.render);
-    this.render();
+    _.bindAll(this, 'render', 'createCollaborator', 'reset', 'add');
+
+    // render to be able to add
+    this.reset();
+
+    this.collection.bind('reset destroy', this.reset);
+    this.collection.bind('add', this.add);
   },
 
   render: function() {
-    var data = {
-      collaborators: this.collection.toJSON(),
-      users: this.users.toJSON()
-    }
-    _.each(data.collaborators, function(c) {
-      c.user = c.user.toJSON();
-    });
-
-    this.$el.html(this.template(data));
+    this.$el.html(this.template({ users: this.users.toJSON() }));
     return this;
+  },
+
+  reset: function() {
+    this.render();
+    this.collection.each(this.add)
+  },
+
+  add: function(collab) {
+    console.log(collab.toJSON());
+    this.$('#collaborators_list').append(new Zaphod.CollaboratorItemView({ model: collab }).render().el);
   },
 
   createCollaborator: function(e) {
