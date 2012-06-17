@@ -34,14 +34,10 @@ class CollaboratorsController < ResourceController
   end
 
   def destroy
-    @deck = Deck.find(params[:deck_id])
-    #
-    # remove the list of user_ids for the given role from the decks collaborators
-    if params[:role] && params[:role] != "owner" && params[:user_ids] && !params[:user_ids].empty?
-      if params[:role] == "editor"
-        params[:user_ids].each { |u| @deck.remove_editor(u) }
-      end
-    end
+    @collaborator = Collaborator.find(params[:id])
+    @deck = @collaborator.deck
+
+    @deck.remove_editor(@collaborator.user_id)
 
     respond_with @deck.editors
   end

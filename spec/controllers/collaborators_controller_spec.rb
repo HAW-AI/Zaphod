@@ -80,16 +80,16 @@ describe CollaboratorsController do
   describe :destroy do
     context "as an authenticated user" do
       context "should be able to remove a user from the deck's list of editors" do
+        let(:number_of_deck_editors_before_adding_a_new_one) { deck.editors.size }
         before do
           editor = FactoryGirl.create(:editor)
           deck.add_editor(editor.id)
-          json_destroy params.merge(role: "editor", user_ids: [editor.id])
+          json_destroy params.merge(id: deck.collaborators.reload.first.id).except(:user_id, :role)
         end
 
         specify { response.should be_success }
         specify do
-          deck.reload
-          deck.editors.size.should == 0
+          deck.reload.editors.size.should == number_of_deck_editors_before_adding_a_new_one
         end
       end
 
