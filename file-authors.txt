@@ -1,0 +1,549 @@
+.gitignore
+Ben
+
+.rspec
+Patrick Detlefsen
+
+Gemfile
+Patrick Detlefsen
+Ben
+Till Theis
+
+Gemfile.lock
+Patrick Detlefsen
+Ben
+Till Theis
+
+Guardfile
+Ben
+
+README.md
+Till Theis
+Ben
+Patrick Detlefsen
+
+Rakefile
+Ben
+
+app/assets/images/zaphod.png
+Ben
+
+app/assets/javascripts/application.js
+Till Theis
+Ben
+
+app/assets/javascripts/collections/cards.js
+Till Theis
+Ralf
+
+app/assets/javascripts/collections/collaborators.js
+Till Theis
+
+app/assets/javascripts/collections/decks.js
+Till Theis
+
+app/assets/javascripts/collections/users.js
+Till Theis
+
+app/assets/javascripts/main.js
+Ben
+Till Theis
+Ralf
+
+app/assets/javascripts/models/card.js
+Till Theis
+Ralf
+
+app/assets/javascripts/models/collaborator.js
+Till Theis
+
+app/assets/javascripts/models/current_user.js
+Till Theis
+
+app/assets/javascripts/models/deck.js
+Till Theis
+
+app/assets/javascripts/models/user.js
+Ben
+Till Theis
+
+app/assets/javascripts/router.js
+Ben
+Till Theis
+
+app/assets/javascripts/users.js
+Patrick Detlefsen
+
+app/assets/javascripts/views/card_view.js
+Till Theis
+Ralf
+
+app/assets/javascripts/views/cards_view.js
+Till Theis
+Ralf
+
+app/assets/javascripts/views/collaborator_item_view.js
+Till Theis
+
+app/assets/javascripts/views/collaborators_view.js
+Till Theis
+
+app/assets/javascripts/views/current_user_view.js
+Till Theis
+
+app/assets/javascripts/views/deck_item_view.js
+Till Theis
+
+app/assets/javascripts/views/deck_view.js
+Till Theis
+
+app/assets/javascripts/views/decks_view.js
+Till Theis
+
+app/assets/javascripts/views/index_view.js
+Ben
+
+app/assets/javascripts/views/learn_view.js
+Till Theis
+
+app/assets/javascripts/views/signup_view.js
+Ben
+Till Theis
+
+app/assets/javascripts/zaphod.js
+Till Theis
+Ralf
+Patrick Detlefsen
+
+app/assets/stylesheets/_styleguide.css.scss
+Ben
+
+app/assets/stylesheets/application.css.scss
+Till Theis
+Ben
+
+app/assets/stylesheets/cards.css.scss
+Ben
+
+app/assets/stylesheets/decks.css.scss
+Ben
+
+app/assets/stylesheets/learn.css.scss
+Ben
+
+app/assets/stylesheets/users.css.scss
+Ben
+
+app/assets/templates/card.jst.hbs
+Till Theis
+Ben
+
+app/assets/templates/cards.jst.hbs
+Till Theis
+Ralf
+
+app/assets/templates/collaborator_item.jst.hbs
+Till Theis
+
+app/assets/templates/collaborators.jst.hbs
+Till Theis
+
+app/assets/templates/current_user.jst.hbs
+Till Theis
+Ben
+
+app/assets/templates/deck.jst.hbs
+Till Theis
+Ben
+
+app/assets/templates/deck_item.jst.hbs
+Till Theis
+Ben
+
+app/assets/templates/decks.jst.hbs
+Till Theis
+
+app/assets/templates/index.jst.hbs
+Ben
+
+app/assets/templates/learn.jst.hbs
+Ben
+Till Theis
+
+app/assets/templates/signup.jst.hbs
+Ben
+
+app/controllers/application_controller.rb
+Patrick Detlefsen
+Ben
+
+app/controllers/cards_controller.rb
+Patrick Detlefsen
+Till Theis
+Ben
+
+app/controllers/collaborators_controller.rb
+Patrick Detlefsen
+Till Theis
+
+app/controllers/current_users_controller.rb
+Till Theis
+Patrick Detlefsen
+Ben
+
+app/controllers/decks_controller.rb
+Patrick Detlefsen
+Till Theis
+
+app/controllers/index_controller.rb
+Till Theis
+
+app/controllers/resource_controller.rb
+Patrick Detlefsen
+Ben
+
+app/controllers/users_controller.rb
+Till Theis
+Patrick Detlefsen
+Ben
+
+app/helpers/application_helper.rb
+Ben
+
+app/helpers/cards_helper.rb
+Patrick Detlefsen
+
+app/helpers/decks_helper.rb
+Patrick Detlefsen
+
+app/helpers/users_helper.rb
+Patrick Detlefsen
+
+app/mailers/.gitkeep
+Ben
+
+app/models/.gitkeep
+Ben
+
+app/models/card.rb
+Patrick Detlefsen
+Till Theis
+
+app/models/collaborator.rb
+Till Theis
+Patrick Detlefsen
+
+app/models/deck.rb
+Patrick Detlefsen
+Till Theis
+Ben
+
+app/models/score.rb
+Patrick Detlefsen
+Till Theis
+
+app/models/user.rb
+Till Theis
+Patrick Detlefsen
+Ben
+
+app/views/index/index.html.erb
+Till Theis
+
+app/views/layouts/application.html.haml
+Ben
+Till Theis
+
+config.ru
+Ben
+
+config/application.rb
+Till Theis
+Ben
+
+config/boot.rb
+Ben
+
+config/database.yml
+Ben
+
+config/environment.rb
+Ben
+
+config/environments/development.rb
+Ben
+
+config/environments/production.rb
+Ben
+
+config/environments/test.rb
+Ben
+
+config/initializers/backtrace_silencers.rb
+Ben
+
+config/initializers/inflections.rb
+Ben
+
+config/initializers/mime_types.rb
+Ben
+
+config/initializers/secret_token.rb
+Ben
+
+config/initializers/session_store.rb
+Ben
+
+config/initializers/sorcery.rb
+Patrick Detlefsen
+Ben
+
+config/initializers/wrap_parameters.rb
+Ben
+
+config/locales/devise.en.yml
+Ben
+
+config/locales/en.yml
+Ben
+
+config/routes.rb
+Till Theis
+Patrick Detlefsen
+Ben
+
+db/migrate/20120326122649_sorcery_core.rb
+Patrick Detlefsen
+
+db/migrate/20120326122700_sorcery_remember_me.rb
+Patrick Detlefsen
+
+db/migrate/20120402092625_add_devise_to_users.rb
+Ben
+
+db/migrate/20120402094441_add_authentication_token_to_user.rb
+Ben
+
+db/migrate/20120402094636_add_failed_attempts_and_unlock_token_and_locked_at_to_users.rb
+Ben
+
+db/migrate/20120402094857_add_indices_to_users.rb
+Ben
+
+db/migrate/20120405120400_add_uniqueness_for_username_to_users.rb
+Till Theis
+
+db/migrate/20120412112053_create_decks.rb
+Patrick Detlefsen
+
+db/migrate/20120412121501_create_cards.rb
+Patrick Detlefsen
+
+db/migrate/20120412124610_rename_creator_id_to_user_id_in_cards.rb
+Patrick Detlefsen
+
+db/migrate/20120430142811_create_collaborators.rb
+Patrick Detlefsen
+
+db/migrate/20120430144832_add_role_to_collaborators.rb
+Patrick Detlefsen
+
+db/migrate/20120430152506_create_scores.rb
+Patrick Detlefsen
+
+db/migrate/20120519110000_drop_user_id_from_cards.rb
+Patrick Detlefsen
+
+db/migrate/20120519112017_drop_user_id_from_decks.rb
+Patrick Detlefsen
+
+db/migrate/20120519193905_add_defaults_to_score.rb
+Till Theis
+
+db/migrate/20120522064822_drop_users_table.rb
+Patrick Detlefsen
+
+db/migrate/20120522071416_readd_sorcery.rb
+Patrick Detlefsen
+
+db/migrate/20120522071601_readd_sorcery_remember_me.rb
+Patrick Detlefsen
+
+db/migrate/20120522072939_add_authentication_token_to_users.rb
+Patrick Detlefsen
+
+db/migrate/20120523201440_change_score_default_to0_in_scores_table.rb
+Patrick Detlefsen
+
+db/schema.rb
+Patrick Detlefsen
+Till Theis
+Ben
+
+db/seeds.rb
+Till Theis
+Ben
+
+doc/README_FOR_APP
+Ben
+
+lib/assets/.gitkeep
+Ben
+
+lib/tasks/.gitkeep
+Ben
+
+log/.gitkeep
+Ben
+
+public/404.html
+Ben
+
+public/422.html
+Ben
+
+public/500.html
+Ben
+
+public/favicon.ico
+Ben
+
+public/robots.txt
+Ben
+
+script/rails
+Ben
+
+spec/controllers/cards_controller_spec.rb
+Patrick Detlefsen
+Till Theis
+Ben
+
+spec/controllers/collaborators_controller_spec.rb
+Patrick Detlefsen
+Till Theis
+
+spec/controllers/current_users_controller_spec.rb
+Patrick Detlefsen
+Till Theis
+Ben
+
+spec/controllers/decks_controller_spec.rb
+Till Theis
+Patrick Detlefsen
+
+spec/controllers/users_controller_spec.rb
+Patrick Detlefsen
+Till Theis
+Ben
+
+spec/factories/cards.rb
+Patrick Detlefsen
+
+spec/factories/collaborators.rb
+Patrick Detlefsen
+
+spec/factories/decks.rb
+Patrick Detlefsen
+
+spec/factories/scores.rb
+Patrick Detlefsen
+
+spec/factories/users.rb
+Patrick Detlefsen
+Ben
+Till Theis
+
+spec/javascripts/collections/cards_spec.js
+Till Theis
+
+spec/javascripts/models/card_spec.js
+Till Theis
+
+spec/javascripts/models/cards_view_spec.js
+Till Theis
+
+spec/javascripts/models/collaborator_spec.js
+Till Theis
+
+spec/javascripts/models/current_user_spec.js
+Till Theis
+
+spec/javascripts/models/deck_spec.js
+Till Theis
+
+spec/javascripts/models/user_spec.js
+Till Theis
+
+spec/javascripts/spec.js
+Till Theis
+
+spec/javascripts/views/card_view_spec.js
+Till Theis
+
+spec/javascripts/views/cards_view_spec.js
+Till Theis
+
+spec/javascripts/views/deck_item_view_spec.js
+Till Theis
+
+spec/javascripts/views/decks_view_spec.js
+Till Theis
+
+spec/javascripts/views/learn_view_spec.js
+Till Theis
+
+spec/models/card_spec.rb
+Till Theis
+Patrick Detlefsen
+
+spec/models/collaborator_spec.rb
+Till Theis
+Patrick Detlefsen
+
+spec/models/deck_spec.rb
+Patrick Detlefsen
+Till Theis
+
+spec/models/score_spec.rb
+Patrick Detlefsen
+Till Theis
+
+spec/models/user_spec.rb
+Till Theis
+Patrick Detlefsen
+Ben
+
+spec/requests/auth_token_spec.rb
+Patrick Detlefsen
+
+spec/spec_helper.rb
+Patrick Detlefsen
+Ben
+
+spec/support/helpers/request_helpers.rb
+Patrick Detlefsen
+Ben
+
+spec/support/macros/login_macros.rb
+Patrick Detlefsen
+Ben
+
+vendor/assets/javascripts/.gitkeep
+Ben
+
+vendor/assets/javascripts/backbone.js
+Till Theis
+
+vendor/assets/javascripts/jquery.js
+Till Theis
+
+vendor/assets/javascripts/underscore.js
+Till Theis
+
+vendor/assets/stylesheets/.gitkeep
+Ben
+
+vendor/plugins/.gitkeep
+Ben
+
