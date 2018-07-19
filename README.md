@@ -32,4 +32,4 @@ Es wird erwartet sich an Rails-Konventionen zu halten. Eine gute Zusammenfassung
 [Buch]: http://addyosmani.github.com/backbone-fundamentals/
 [Underscore]: http://documentcloud.github.com/underscore/
 [Handlebars]: http://handlebarsjs.com/
-[Jasmine]: http://pivotal.github.com/jasmine/
+[Jasmine]: https://jasmine.github.io/
